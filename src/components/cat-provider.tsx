@@ -13,6 +13,6 @@ export default function CatProvider({
   children: React.ReactNode;
 }) {
   const context = useCatSetup(count);
-
+  console.log(context.catsRemaining() + " cats remaining");
   return <CatContext.Provider value={context}>{children}</CatContext.Provider>;
 }

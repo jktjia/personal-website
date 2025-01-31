@@ -23,12 +23,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("Root Layout");
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CatProvider count={2}>{children}</CatProvider>
+        <CatProvider count={3}>{children}</CatProvider>
       </body>
     </html>
   );

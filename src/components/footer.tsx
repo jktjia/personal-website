@@ -12,7 +12,7 @@ export default function Footer() {
       >
         LinkedIn
       </Link>
-      <HiddenCat n={2} />
+      <HiddenCat n={0} />
       <Link
         href="https://github.com/jktjia/"
         className="hover:underline hover:underline-offset-4"

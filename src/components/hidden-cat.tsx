@@ -12,15 +12,16 @@ export default function HiddenCat({
   className?: string;
 }) {
   const context = useCats();
-
+  const classNameBase =
+    `[color:${color || "foreground"}] ` +
+    (context?.isCatFound(n) ? "opacity-100 " : "opacity-0 hover:opacity-50 ");
   return (
     <Cat
-      className={
-        (!context?.isCatFound(n) && "opacity-0 hover:opacity-50") +
-        ` [color:${color || "foreground"}] ` +
-        className
-      }
-      onClick={() => context?.findCat(n)}
+      className={classNameBase + className}
+      onClick={() => {
+        console.log(`clicked cat ${n}!`);
+        context?.findCat(n);
+      }}
     />
   );
 }
