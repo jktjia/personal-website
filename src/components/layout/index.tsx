@@ -1,5 +1,5 @@
 import "@/lib/globals.css";
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/footer";
 import { Outlet } from "react-router";
 import Header from "./header";
 

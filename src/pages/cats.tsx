@@ -14,7 +14,7 @@ export default function Cats() {
           <div>You found all of the cats!!</div>
           <button
             onClick={context?.reset}
-            className="bg-tertiary text-background"
+            className="bg-tertiary text-background p-2 rounded-md"
           >
             Reset cats
           </button>
