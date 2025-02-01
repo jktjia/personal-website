@@ -6,13 +6,11 @@ import { CatContext, useCatSetup } from "@/hooks/use-cats";
  * @returns The provider component
  */
 export default function CatProvider({
-  count,
   children,
 }: {
-  count: number;
   children: React.ReactNode;
 }) {
-  const context = useCatSetup(count);
-  console.log(context.catsRemaining() + " cats remaining");
+  const context = useCatSetup(4);
+
   return <CatContext.Provider value={context}>{children}</CatContext.Provider>;
 }

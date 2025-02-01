@@ -1,8 +1,19 @@
-import { CatContextType } from "@/app/types";
+import { CatContextType } from "@/lib/types";
 import { createContext, useContext } from "react";
 import { useSessionStorage } from "usehooks-ts";
 
-const CatContext = createContext<CatContextType | null>(null);
+const CatContext = createContext<CatContextType>({
+  isCatFound: (n: number) => {
+    console.log(`isCatFound: ${n}`);
+    return false;
+  },
+  findCat: (n: number) => console.log(`findCat: ${n}`),
+  catsRemaining: () => {
+    console.log("catsRemaining");
+    return -1;
+  },
+  reset: () => console.log("reset"),
+});
 
 function useCatSetup(count: number): CatContextType {
   const falseArr = new Array(count).fill(false);
@@ -12,7 +23,6 @@ function useCatSetup(count: number): CatContextType {
   );
 
   const isCatFound = (n: number) => {
-    console.log(`isCatFound: ${foundCats[n]}`);
     if (n < 0 || n >= foundCats.length) {
       return false;
     }
@@ -20,7 +30,6 @@ function useCatSetup(count: number): CatContextType {
   };
 
   const findCat = (n: number) => {
-    console.log(`findCat: ${n}`);
     if (n < 0 || n >= foundCats.length) {
       console.log(`Cat ${n} does not exist`);
     } else {
@@ -32,8 +41,9 @@ function useCatSetup(count: number): CatContextType {
   };
 
   const catsRemaining = () => {
-    console.log("catsRemaining");
-    return foundCats.filter((cat) => !cat).length;
+    const remaining = foundCats.filter((cat) => !cat).length;
+    console.log(`catsRemaining: ${remaining}`);
+    return remaining;
   };
 
   const reset = () => {

@@ -4,17 +4,18 @@
 
 :root {
   --primary: #003153;
-  --off-white: #F7F4F3;
-  --black: #171717;
   --secondary: #FFA62B;
-  --background: var(--off-white);
+  --tertiary: #489FB5;
+  --white: #F7F4F3;
+  --black: #171717;
+  --background: var(--white);
   --foreground: var(--primary);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--primary);
-    --foreground: var(--off-white);
+    --foreground: var(--white);
   }
 }
 
