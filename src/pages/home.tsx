@@ -3,6 +3,7 @@ import HiddenCat from "@/components/cats/hidden-cat";
 import { ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import { cn } from "@/lib/utils";
+import ScrollAppearDiv from "@/components/scroll-appear-div";
 
 function HomePageLink({
   label,
@@ -17,7 +18,7 @@ function HomePageLink({
     <NavLink
       to={to}
       className={cn(
-        "flex flex-row border-b-2 border-transparent hover:border-primary dark:hover:border-white gap-2 w-fit",
+        "flex flex-row border-b-2 transition-colors border-transparent hover:border-primary dark:hover:border-white gap-2 w-fit",
         className,
       )}
     >
@@ -35,14 +36,14 @@ export default function Home() {
         "text-white dark:bg-clip-text dark:text-transparent flex-grow w-screen grid relative"
       }
     >
-      <div className="row-start-2 font-mono gap-5 flex flex-col max-w-fit justify-self-center">
+      <ScrollAppearDiv className="row-start-2 font-mono gap-5 flex flex-col max-w-fit justify-self-center">
         <div className="text-4xl text-left">Hi, I&apos;m</div>
         <div className="text-8xl font-extrabold">Jamie Kai Tjia</div>
         <div className="flex flex-col">
           <HomePageLink to="about" label="About Me" />
           <HomePageLink to="contact" label="Contact Me" />
         </div>
-      </div>
+      </ScrollAppearDiv>
       <HiddenCat n={6} className="absolute m-3 dark:text-white" />
       <HiddenCat
         n={7}

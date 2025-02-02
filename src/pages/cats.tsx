@@ -3,7 +3,7 @@ import { useCats } from "@/hooks/use-cats";
 import { NavLink } from "react-router";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { Cat } from "lucide-react";
+import { ArrowRight, Cat } from "lucide-react";
 import ScrollAppearDiv from "@/components/scroll-appear-div";
 
 function CatBorder({ rows }: { rows: number }) {
@@ -39,14 +39,16 @@ function CatsRemainingPage() {
   const oneCatRemaining: boolean = catsRemaining() === 1;
 
   return (
-    <div>
-      There {oneCatRemaining ? "is" : "are"} still {catsRemaining()}{" "}
-      {oneCatRemaining ? "cat" : "cats"} for you to find
+    <div className="flex-grow grid">
+      <p className="row-start-2">
+        There {oneCatRemaining ? "is" : "are"} still {catsRemaining()}{" "}
+        {oneCatRemaining ? "cat" : "cats"} for you to find
+      </p>
     </div>
   );
 }
 
-function FirstTimeCats() {
+function FirstTimeCatsPage() {
   const { setCatPageSeen } = useCats();
   return (
     <div className="flex flex-col">
@@ -79,26 +81,34 @@ function FirstTimeCats() {
   );
 }
 
+function CatPage() {
+  const { reset } = useCats();
+  return (
+    <>
+      <div className="text-5xl pt-10">Kai's Page of Nonsense</div>
+      <div className="flex items-center gap-2">
+        Done with the nonsense? Click this
+        <ArrowRight className="h-4 w-4" />
+        <NavLink
+          to="/"
+          onClick={reset}
+          className="bg-tertiary text-background p-2 rounded-md"
+        >
+          Reset cats
+        </NavLink>
+      </div>
+    </>
+  );
+}
+
 export default function Cats() {
-  const { catsRemaining, hasSeenCatPage, reset } = useCats();
+  const { catsRemaining, hasSeenCatPage } = useCats();
 
   if (catsRemaining()) {
     return <CatsRemainingPage />;
   } else if (!hasSeenCatPage) {
-    return <FirstTimeCats />;
+    return <FirstTimeCatsPage />;
   } else {
-    return (
-      <>
-        <div className="text-5xl pt-10">Kai's Page of Nonsense</div>
-        <NavLink to="/" className="m-2">
-          <button
-            onClick={reset}
-            className="bg-tertiary text-background p-2 rounded-md"
-          >
-            Reset cats
-          </button>
-        </NavLink>
-      </>
-    );
+    return <CatPage />;
   }
 }

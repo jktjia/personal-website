@@ -14,7 +14,7 @@ export default function Work() {
         My Work Experience
       </div>
       <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 px-6 max-w-5xl">
-        <HiddenCat n={8} className="static top-0" />
+        <HiddenCat n={8} />
         <ExperienceCard className="lg:col-start-1 lg:row-start-1 lg:row-span-2">
           <ExperienceHeader>Verizon Communications x NExT Lab</ExperienceHeader>
           <ExperienceSubheader>
@@ -67,7 +67,9 @@ export default function Work() {
               </li>
             </ul>
           </ExperienceDescription>
-          <ExperienceTags tags={["LaTeX", ""]} />
+          <ExperienceTags tags={["LaTeX"]}>
+            <HiddenCat n={4} className="text-secondary" />
+          </ExperienceTags>
         </ExperienceCard>
         <ExperienceCard className="lg:col-start-1 lg:row-span-2">
           <ExperienceHeader>UMass Chan Medical School</ExperienceHeader>
@@ -102,9 +104,7 @@ export default function Work() {
               </li>
             </ul>
           </ExperienceDescription>
-          <ExperienceTags tags={["SAS", ""]}>
-            <HiddenCat n={4} className="content-center text-secondary" />
-          </ExperienceTags>
+          <ExperienceTags tags={["SAS", "Data Analysis"]} />
         </ExperienceCard>
         <div className="w-full h-full flex flex-row-reverse">
           <HiddenCat n={9} />

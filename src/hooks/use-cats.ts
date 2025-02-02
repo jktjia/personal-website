@@ -41,15 +41,12 @@ function useCatSetup(count: number): CatContextType {
     } else {
       const newFoundCats = [...foundCats];
       newFoundCats[n] = true;
-      console.log(newFoundCats);
       setFoundCats(newFoundCats);
     }
   };
 
   const catsRemaining = () => {
-    const remaining = foundCats.filter((cat) => !cat).length;
-    console.log(`catsRemaining: ${remaining}`);
-    return remaining;
+    return foundCats.filter((cat) => !cat).length;
   };
 
   const reset = () => {

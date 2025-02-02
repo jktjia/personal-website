@@ -1,5 +1,4 @@
 import "@/lib/globals.css";
-import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import ScrollAppearDiv from "./scroll-appear-div";
 
@@ -11,14 +10,11 @@ export default function ExperienceCard({
   className?: string;
 }) {
   return (
-    <ScrollAppearDiv
-      className={cn(
-        "bg-tertiary p-10 rounded-md text-primary flex-col font-serif" +
-          className,
-      )}
-    >
-      {children}
-    </ScrollAppearDiv>
+    <div className={className}>
+      <ScrollAppearDiv className="bg-tertiary p-10 rounded-lg text-primary flex-col font-serif">
+        {children}
+      </ScrollAppearDiv>
+    </div>
   );
 }
 
@@ -44,7 +40,7 @@ function ExperienceTags({
   children?: ReactNode;
 }) {
   return (
-    <div className="flex flex-row flex-wrap gap-2">
+    <div className="flex flex-row flex-wrap gap-2 items-center">
       {tags.map((name, idx) => (
         <div
           key={idx}
