@@ -1,6 +1,7 @@
 import "@/lib/globals.css";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
+import ScrollAppearDiv from "./scroll-appear-div";
 
 export default function ExperienceCard({
   children,
@@ -10,14 +11,14 @@ export default function ExperienceCard({
   className?: string;
 }) {
   return (
-    <div
+    <ScrollAppearDiv
       className={cn(
         "bg-tertiary p-10 rounded-md text-primary flex-col font-serif" +
           className,
       )}
     >
       {children}
-    </div>
+    </ScrollAppearDiv>
   );
 }
 

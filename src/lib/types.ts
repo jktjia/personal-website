@@ -3,8 +3,8 @@ interface CatContextType {
   findCat: (n: number) => void;
   catsRemaining: () => number;
   reset: () => void;
-  catPageSeen: () => boolean;
-  setCatPageSeen: (seen: boolean) => void;
+  hasSeenCatPage: boolean;
+  setCatPageSeen: () => void;
 }
 
 interface AlertType {

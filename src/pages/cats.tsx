@@ -1,105 +1,104 @@
 import "@/lib/globals.css";
 import { useCats } from "@/hooks/use-cats";
 import { NavLink } from "react-router";
-
-import { ReactNode, RefObject, useEffect, useRef, useState } from "react";
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Cat } from "lucide-react";
+import ScrollAppearDiv from "@/components/scroll-appear-div";
 
-export function useIsVisible(ref: RefObject<Element | null>) {
-  const [isIntersecting, setIntersecting] = useState(false);
-
-  useEffect(() => {
-    if (ref.current) {
-      const observer = new IntersectionObserver(([entry]) => {
-        setIntersecting(entry.isIntersecting);
-      });
-
-      observer.observe(ref.current);
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, [ref]);
-
-  return isIntersecting;
+function CatBorder({ rows }: { rows: number }) {
+  const cats = [];
+  for (let n = 0; n < rows; n++) {
+    cats.push(<Cat className="w-32 h-32 m-4" />);
+  }
+  return <div className="flex flex-col">{cats}</div>;
 }
 
-function ScrollAppearDiv({
+function CatBorderedElement({
+  rows,
   className,
   children,
 }: {
+  rows: number;
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
-  const ref = useRef(null);
-  const isVisible = useIsVisible(ref);
   return (
-    <div ref={ref} className="h-screen flex flex-row items-center text-center">
-      <div className="grid grid-cols-1 h-full mx-4">
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-      </div>
-      <div
-        className={cn(
-          `flex-grow transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"} text-6xl`,
-          className,
-        )}
-      >
+    <div className="h-fit flex flex-row items-center text-center">
+      <CatBorder rows={rows} />
+      <ScrollAppearDiv className={cn("flex-grow text-6xl", className)}>
         {children}
-      </div>
-      <div className="grid grid-cols-1 h-full mx-4">
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-        <Cat className="w-32 h-32" />
-      </div>
+      </ScrollAppearDiv>
+      <CatBorder rows={rows} />
     </div>
   );
 }
 
 function CatsRemainingPage() {
-  const context = useCats();
-  const isOneCatRemaining = context && context.catsRemaining() === 1;
+  const { catsRemaining } = useCats();
+  const oneCatRemaining: boolean = catsRemaining() === 1;
 
   return (
     <div>
-      There {isOneCatRemaining ? "is" : "are"} still {context?.catsRemaining()}{" "}
-      {isOneCatRemaining ? "cat" : "cats"} for you to find
+      There {oneCatRemaining ? "is" : "are"} still {catsRemaining()}{" "}
+      {oneCatRemaining ? "cat" : "cats"} for you to find
+    </div>
+  );
+}
+
+function FirstTimeCats() {
+  const { setCatPageSeen } = useCats();
+  return (
+    <div className="flex flex-col">
+      <CatBorderedElement rows={2} />
+      <CatBorderedElement rows={1}>
+        You went through all of the pages
+      </CatBorderedElement>
+      <CatBorderedElement rows={2} />
+      <CatBorderedElement rows={1}>
+        And you found all of the cats!
+      </CatBorderedElement>
+      <CatBorderedElement rows={2} />
+      <CatBorderedElement rows={2}>Now what?</CatBorderedElement>
+      <CatBorderedElement rows={2} />
+      <CatBorderedElement rows={1}>
+        Allow me to welcome you to...
+      </CatBorderedElement>
+      <CatBorderedElement rows={2} />
+      <CatBorderedElement rows={3}>
+        <div className="text-9xl">Kai's Page of Nonsense</div>
+        <button
+          className="text-lg bg-tertiary p-4 rounded-md hover:opacity-80"
+          onClick={setCatPageSeen}
+        >
+          Let's see some nonsense!
+        </button>
+      </CatBorderedElement>
+      <CatBorderedElement rows={1} />
     </div>
   );
 }
 
 export default function Cats() {
-  const context = useCats();
+  const { catsRemaining, hasSeenCatPage, reset } = useCats();
 
-  return (
-    <>
-      {context?.catsRemaining() ? (
-        <CatsRemainingPage />
-      ) : (
-        <div className="flex flex-col">
-          <ScrollAppearDiv>You found all of the cats!</ScrollAppearDiv>
-          <ScrollAppearDiv>You went through all of the pages </ScrollAppearDiv>
-          <ScrollAppearDiv>Now what?</ScrollAppearDiv>
-          <ScrollAppearDiv>Allow me to welcome you to...</ScrollAppearDiv>
-          <ScrollAppearDiv className="text-9xl">
-            Kai's Page of Nonsense
-          </ScrollAppearDiv>
-          <NavLink to="/" className="m-2">
-            <button
-              onClick={context?.reset}
-              className="bg-tertiary text-background p-2 rounded-md"
-            >
-              Reset cats
-            </button>
-          </NavLink>
-        </div>
-      )}
-    </>
-  );
+  if (catsRemaining()) {
+    return <CatsRemainingPage />;
+  } else if (!hasSeenCatPage) {
+    return <FirstTimeCats />;
+  } else {
+    return (
+      <>
+        <div className="text-5xl pt-10">Kai's Page of Nonsense</div>
+        <NavLink to="/" className="m-2">
+          <button
+            onClick={reset}
+            className="bg-tertiary text-background p-2 rounded-md"
+          >
+            Reset cats
+          </button>
+        </NavLink>
+      </>
+    );
+  }
 }

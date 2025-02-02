@@ -8,7 +8,7 @@ import ExperienceCard, {
 export default function Projects() {
   return (
     <>
-      <div className="text-5xl pt-10 w-full text-center">My Projects</div>
+      <div className="text-5xl pt-10 pl-6">My Projects</div>
       <div className="grid gap-6 pb-10 p-6 max-w-7xl lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         <ExperienceCard>
           <ExperienceHeader>Loggr</ExperienceHeader>
