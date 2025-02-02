@@ -13,7 +13,7 @@ export default function Work() {
       <div className="text-5xl pt-10 w-full text-center">
         My Work Experience
       </div>
-      <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 p-6 max-w-5xl">
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 px-6 max-w-5xl">
         <HiddenCat n={8} className="static top-0" />
         <ExperienceCard className="lg:col-start-1 lg:row-start-1 lg:row-span-2">
           <ExperienceHeader>Verizon Communications x NExT Lab</ExperienceHeader>
