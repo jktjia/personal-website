@@ -47,7 +47,7 @@ const Alert = ({
       <div
         className={
           classNames[severity] +
-          " rounded-b px-4 py-3 mb-4 shadow-md pointer-events-auto"
+          "rounded-b px-4 py-3 mb-4 shadow-md pointer-events-auto text-black"
         }
         role="alert"
       >

@@ -1,5 +1,6 @@
 import "@/lib/globals.css";
 import { useCats } from "@/hooks/use-cats";
+import { NavLink } from "react-router";
 
 export default function Cats() {
   const context = useCats();
@@ -11,13 +12,16 @@ export default function Cats() {
         <div>{`There ${isOneCatRemaining ? "is" : "are"} still ${context?.catsRemaining()} ${isOneCatRemaining ? "cat" : "cats"} for you to find`}</div>
       ) : (
         <>
-          <div>You found all of the cats!!</div>
-          <button
-            onClick={context?.reset}
-            className="bg-tertiary text-background p-2 rounded-md"
-          >
-            Reset cats
-          </button>
+          <div className="pt-10">You found all of the cats!!</div>
+          <div>Now what?</div>
+          <NavLink to="/">
+            <button
+              onClick={context?.reset}
+              className="bg-tertiary text-background p-2 rounded-md"
+            >
+              Reset cats
+            </button>
+          </NavLink>
         </>
       )}
     </>

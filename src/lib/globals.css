@@ -4,9 +4,9 @@
 
 :root {
   --primary: #003153;
-  --secondary: #FFA62B;
-  --tertiary: #489FB5;
-  --white: #F7F4F3;
+  --secondary: #0077cc;
+  --tertiary: #47b3ff;
+  --white: #f7f4f3;
   --black: #171717;
   --background: var(--white);
   --foreground: var(--primary);

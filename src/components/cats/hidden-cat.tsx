@@ -3,6 +3,7 @@ import { useCats } from "@/hooks/use-cats";
 import { Cat } from "lucide-react";
 import { useAlerts } from "@/hooks/use-alerts";
 import { AlertSeverity } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 export default function HiddenCat({
   n,
@@ -30,19 +31,19 @@ export default function HiddenCat({
         addAlert({
           severity: AlertSeverity.INFO,
           message: `You found a cat! ${newRemaining} ${newRemaining == 1 ? "cat" : "cats"} remaining.`,
-          timeout: 5,
+          timeout: 2,
         });
       } else {
         addAlert({
           severity: AlertSeverity.INFO,
           message: "You found all of the cats!",
-          timeout: 5,
+          timeout: 2,
         });
       }
     }
   };
 
   return (
-    <Cat className={classNameBase + className} onClick={clickCatAndAlert} />
+    <Cat className={cn(classNameBase + className)} onClick={clickCatAndAlert} />
   );
 }

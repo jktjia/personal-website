@@ -1,4 +1,5 @@
 import "@/lib/globals.css";
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 export default function ExperienceCard({
@@ -9,20 +10,33 @@ export default function ExperienceCard({
   className?: string;
 }) {
   return (
-    <div className={"bg-secondary h-28 p-4 rounded-md text-black" + className}>
+    <div
+      className={cn(
+        "bg-tertiary p-10 rounded-md text-primary flex-col m-4 font-serif" +
+          className,
+      )}
+    >
       {children}
     </div>
   );
 }
 
 function ExperienceCompany({ children }: { children: ReactNode }) {
-  return <div className="text-xl font-extrabold">{children}</div>;
+  return <div className="text-2xl font-extrabold">{children}</div>;
 }
 
 function ExperiencePosition({ children }: { children: ReactNode }) {
   return (
-    <div className="text-lg font-semibold opacity-75 italic">{children}</div>
+    <div className="text-xl font-semibold opacity-75 italic">{children}</div>
   );
 }
 
-export { ExperienceCompany, ExperiencePosition };
+function ExperienceContent({ children }: { children: ReactNode }) {
+  return (
+    <div className="pl-4 pt-4 max-w-xl self-center text-lg text-left">
+      {children}
+    </div>
+  );
+}
+
+export { ExperienceCompany, ExperiencePosition, ExperienceContent };

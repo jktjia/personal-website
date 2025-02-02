@@ -8,6 +8,7 @@ import Cats from "./pages/cats";
 import Layout from "./components/layout";
 import AlertsProvider from "./components/alerts/alert-provider";
 import Experience from "./pages/experience";
+import NotFound from "./pages/not-found";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")!).render(
               <Route path="about" element={<About />} />
               <Route path="experience" element={<Experience />} />
               <Route path="cats" element={<Cats />} />
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </CatProvider>
