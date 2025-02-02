@@ -14,7 +14,7 @@ export default function Work() {
         My Work Experience
       </div>
       <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 p-6 max-w-5xl">
-        <HiddenCat n={7} className="static top-0" />
+        <HiddenCat n={8} className="static top-0" />
         <ExperienceCard className="lg:col-start-1 lg:row-start-1 lg:row-span-2">
           <ExperienceHeader>Verizon Communications x NExT Lab</ExperienceHeader>
           <ExperienceSubheader>
@@ -107,7 +107,7 @@ export default function Work() {
           </ExperienceTags>
         </ExperienceCard>
         <div className="w-full h-full flex flex-row-reverse">
-          <HiddenCat n={7} />
+          <HiddenCat n={9} />
         </div>
       </div>
     </>
