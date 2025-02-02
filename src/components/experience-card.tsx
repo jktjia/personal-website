@@ -12,7 +12,7 @@ export default function ExperienceCard({
   return (
     <div
       className={cn(
-        "bg-tertiary p-10 rounded-md text-primary flex-col m-4 font-serif" +
+        "bg-tertiary p-10 rounded-md text-primary flex-col font-serif" +
           className,
       )}
     >
@@ -21,22 +21,45 @@ export default function ExperienceCard({
   );
 }
 
-function ExperienceCompany({ children }: { children: ReactNode }) {
+function ExperienceHeader({ children }: { children: ReactNode }) {
   return <div className="text-2xl font-extrabold">{children}</div>;
 }
 
-function ExperiencePosition({ children }: { children: ReactNode }) {
+function ExperienceSubheader({ children }: { children: ReactNode }) {
   return (
     <div className="text-xl font-semibold opacity-75 italic">{children}</div>
   );
 }
 
-function ExperienceContent({ children }: { children: ReactNode }) {
+function ExperienceDescription({ children }: { children: ReactNode }) {
+  return <div className="py-4 self-center text-lg text-left">{children}</div>;
+}
+
+function ExperienceTags({
+  tags,
+  children,
+}: {
+  tags: string[];
+  children?: ReactNode;
+}) {
   return (
-    <div className="pl-4 pt-4 max-w-xl self-center text-lg text-left">
+    <div className="flex flex-row flex-wrap gap-2">
+      {tags.map((name, idx) => (
+        <div
+          key={idx}
+          className="py-2 px-3 bg-secondary text-white rounded-2xl text-sm"
+        >
+          {name}
+        </div>
+      ))}
       {children}
     </div>
   );
 }
 
-export { ExperienceCompany, ExperiencePosition, ExperienceContent };
+export {
+  ExperienceHeader,
+  ExperienceSubheader,
+  ExperienceDescription,
+  ExperienceTags,
+};

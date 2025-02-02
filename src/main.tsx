@@ -7,8 +7,9 @@ import About from "./pages/about";
 import Cats from "./pages/cats";
 import Layout from "./components/layout";
 import AlertsProvider from "./components/alerts/alert-provider";
-import Experience from "./pages/experience";
+import Work from "./pages/work";
 import NotFound from "./pages/not-found";
+import Projects from "./pages/projects";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -19,8 +20,9 @@ createRoot(document.getElementById("root")!).render(
             <Route element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
-              <Route path="experience" element={<Experience />} />
+              <Route path="experience" element={<Work />} />
               <Route path="cats" element={<Cats />} />
+              <Route path="projects" element={<Projects />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
