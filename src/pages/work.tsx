@@ -103,7 +103,7 @@ export default function Work() {
             </ul>
           </ExperienceDescription>
           <ExperienceTags tags={["SAS", ""]}>
-            <HiddenCat n={4} className="content-center" color="secondary" />
+            <HiddenCat n={4} className="content-center text-secondary" />
           </ExperienceTags>
         </ExperienceCard>
         <div className="w-full h-full flex flex-row-reverse">

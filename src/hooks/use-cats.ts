@@ -9,13 +9,22 @@ const CatContext = createContext<CatContextType>({
   },
   findCat: (n: number) => console.log(`findCat: ${n}`),
   catsRemaining: () => {
-    console.log("catsRemaining");
+    console.log(`catsRemaining: ${-1}`);
     return -1;
   },
   reset: () => console.log("reset"),
+  catPageSeen: () => {
+    console.log(`catPageSeen: ${false}`);
+    return false;
+  },
+  setCatPageSeen: (seen: boolean) => console.log(`setCatPageSeen: ${seen}`),
 });
 
 function useCatSetup(count: number): CatContextType {
+  const [catPageSeen, setCatPageSeen] = useSessionStorage<boolean>(
+    "cat-page-seen",
+    false,
+  );
   const falseArr = new Array(count).fill(false);
   const [foundCats, setFoundCats] = useSessionStorage<boolean[]>(
     "found-cats",
@@ -55,6 +64,8 @@ function useCatSetup(count: number): CatContextType {
     findCat,
     catsRemaining,
     reset,
+    catPageSeen: () => catPageSeen,
+    setCatPageSeen,
   };
 }
 

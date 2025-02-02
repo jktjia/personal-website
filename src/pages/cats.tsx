@@ -35,54 +35,62 @@ function ScrollAppearDiv({
   const ref = useRef(null);
   const isVisible = useIsVisible(ref);
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "h-screen flex flex-row items-center text-center",
-        className,
-      )}
-    >
-      <div className="flex flex-col h-full">
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
+    <div ref={ref} className="h-screen flex flex-row items-center text-center">
+      <div className="grid grid-cols-1 h-full mx-4">
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
       </div>
       <div
-        className={`flex-grow transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"} text-6xl`}
+        className={cn(
+          `flex-grow transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"} text-6xl`,
+          className,
+        )}
       >
         {children}
       </div>
-      <div className="flex flex-col h-full">
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
-        <Cat className="w-32 h-32 flex-grow" />
+      <div className="grid grid-cols-1 h-full mx-4">
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
+        <Cat className="w-32 h-32" />
       </div>
+    </div>
+  );
+}
+
+function CatsRemainingPage() {
+  const context = useCats();
+  const isOneCatRemaining = context && context.catsRemaining() === 1;
+
+  return (
+    <div>
+      There {isOneCatRemaining ? "is" : "are"} still {context?.catsRemaining()}{" "}
+      {isOneCatRemaining ? "cat" : "cats"} for you to find
     </div>
   );
 }
 
 export default function Cats() {
   const context = useCats();
-  const isOneCatRemaining = context && context.catsRemaining() === 1;
 
   return (
     <>
       {context?.catsRemaining() ? (
-        <div>{`There ${isOneCatRemaining ? "is" : "are"} still ${context?.catsRemaining()} ${isOneCatRemaining ? "cat" : "cats"} for you to find`}</div>
+        <CatsRemainingPage />
       ) : (
         <div className="flex flex-col">
           <ScrollAppearDiv>You found all of the cats!</ScrollAppearDiv>
-          <ScrollAppearDiv>You found all of the cats!</ScrollAppearDiv>
+          <ScrollAppearDiv>You went through all of the pages </ScrollAppearDiv>
           <ScrollAppearDiv>Now what?</ScrollAppearDiv>
-          <ScrollAppearDiv>Welcome to</ScrollAppearDiv>
+          <ScrollAppearDiv>Allow me to welcome you to...</ScrollAppearDiv>
           <ScrollAppearDiv className="text-9xl">
             Kai's Page of Nonsense
           </ScrollAppearDiv>
-          <NavLink to="/">
+          <NavLink to="/" className="m-2">
             <button
               onClick={context?.reset}
               className="bg-tertiary text-background p-2 rounded-md"

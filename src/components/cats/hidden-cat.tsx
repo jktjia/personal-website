@@ -17,9 +17,11 @@ export default function HiddenCat({
   visible?: boolean;
 }) {
   const { catsRemaining, isCatFound, findCat } = useCats();
-  const classNameBase =
-    `[color:${color || "foreground"}] ` +
-    (isCatFound(n) || visible ? "opacity-100 " : "opacity-0 hover:opacity-50 ");
+  const classNameFull = cn(
+    `text-${color}`,
+    isCatFound(n) || visible ? "opacity-100 " : "opacity-0 hover:opacity-50 ",
+    className,
+  );
 
   const { addAlert } = useAlerts();
 
@@ -43,7 +45,5 @@ export default function HiddenCat({
     }
   };
 
-  return (
-    <Cat className={cn(classNameBase + className)} onClick={clickCatAndAlert} />
-  );
+  return <Cat className={classNameFull} onClick={clickCatAndAlert} />;
 }
