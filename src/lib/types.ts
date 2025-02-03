@@ -1,7 +1,7 @@
 interface CatContextType {
   isCatFound: (n: number) => boolean;
   findCat: (n: number) => void;
-  catsRemaining: () => number;
+  catsRemaining: number;
   reset: () => void;
   hasSeenCatPage: boolean;
   setCatPageSeen: () => void;

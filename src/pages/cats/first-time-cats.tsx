@@ -1,10 +1,8 @@
-import "@/lib/globals.css";
-import { useCats } from "@/hooks/use-cats";
-import { NavLink } from "react-router";
-import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
-import { ArrowRight, Cat } from "lucide-react";
 import ScrollAppearDiv from "@/components/scroll-appear-div";
+import { useCats } from "@/hooks/use-cats";
+import { cn } from "@/lib/utils";
+import { Cat } from "lucide-react";
+import { ReactNode } from "react";
 
 function CatBorder({ rows }: { rows: number }) {
   const cats = [];
@@ -34,21 +32,7 @@ function CatBorderedElement({
   );
 }
 
-function CatsRemainingPage() {
-  const { catsRemaining } = useCats();
-  const oneCatRemaining: boolean = catsRemaining() === 1;
-
-  return (
-    <div className="flex-grow grid">
-      <p className="row-start-2">
-        There {oneCatRemaining ? "is" : "are"} still {catsRemaining()}{" "}
-        {oneCatRemaining ? "cat" : "cats"} for you to find
-      </p>
-    </div>
-  );
-}
-
-function FirstTimeCatsPage() {
+export default function FirstTimeCatsPage() {
   const { setCatPageSeen } = useCats();
   return (
     <div className="flex flex-col">
@@ -79,36 +63,4 @@ function FirstTimeCatsPage() {
       <CatBorderedElement rows={1} />
     </div>
   );
-}
-
-function CatPage() {
-  const { reset } = useCats();
-  return (
-    <>
-      <div className="text-5xl pt-10">Kai's Page of Nonsense</div>
-      <div className="flex items-center gap-2">
-        Done with the nonsense? Click this
-        <ArrowRight className="h-4 w-4" />
-        <NavLink
-          to="/"
-          onClick={reset}
-          className="bg-tertiary text-background p-2 rounded-md"
-        >
-          Reset cats
-        </NavLink>
-      </div>
-    </>
-  );
-}
-
-export default function Cats() {
-  const { catsRemaining, hasSeenCatPage } = useCats();
-
-  if (catsRemaining()) {
-    return <CatsRemainingPage />;
-  } else if (!hasSeenCatPage) {
-    return <FirstTimeCatsPage />;
-  } else {
-    return <CatPage />;
-  }
 }

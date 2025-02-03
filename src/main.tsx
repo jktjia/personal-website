@@ -21,8 +21,8 @@ createRoot(document.getElementById("root")!).render(
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="experience" element={<Work />} />
-              <Route path="cats" element={<Cats />} />
               <Route path="projects" element={<Projects />} />
+              <Route path="cats" element={<Cats />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

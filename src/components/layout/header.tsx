@@ -47,7 +47,7 @@ export default function Header() {
         <HeaderItem label="Contact" to="contact" />
       </div>
       <div>
-        {catsRemaining() ? (
+        {catsRemaining ? (
           <HiddenCat n={0} className="h-10 w-10" />
         ) : (
           <HeaderItem label="Cats" to="cats" />

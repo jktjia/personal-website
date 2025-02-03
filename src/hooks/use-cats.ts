@@ -8,10 +8,7 @@ const CatContext = createContext<CatContextType>({
     return false;
   },
   findCat: (n: number) => console.log(`findCat: ${n}`),
-  catsRemaining: () => {
-    console.log(`catsRemaining: ${-1}`);
-    return -1;
-  },
+  catsRemaining: -1,
   reset: () => console.log("reset"),
   hasSeenCatPage: false,
   setCatPageSeen: () => console.log(`setCatPageSeen`),
@@ -45,7 +42,7 @@ function useCatSetup(count: number): CatContextType {
     }
   };
 
-  const catsRemaining = () => {
+  const countCatsRemaining = () => {
     return foundCats.filter((cat) => !cat).length;
   };
 
@@ -56,7 +53,7 @@ function useCatSetup(count: number): CatContextType {
   return {
     isCatFound,
     findCat,
-    catsRemaining,
+    catsRemaining: countCatsRemaining(),
     reset,
     hasSeenCatPage,
     setCatPageSeen: () => setCatPageSeen(true),

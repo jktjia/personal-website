@@ -1,17 +1,24 @@
 import "@/lib/globals.css";
 import { ReactNode } from "react";
 import ScrollAppearDiv from "./scroll-appear-div";
+import { cn } from "@/lib/utils";
 
 export default function ExperienceCard({
   children,
   className,
 }: {
+  href?: string;
   children: ReactNode;
   className?: string;
 }) {
   return (
-    <div className={className}>
-      <ScrollAppearDiv className="bg-tertiary p-10 rounded-lg text-primary flex-col font-serif">
+    <div>
+      <ScrollAppearDiv
+        className={cn(
+          "bg-tertiary p-10 rounded-lg text-primary flex-col font-serif",
+          className,
+        )}
+      >
         {children}
       </ScrollAppearDiv>
     </div>

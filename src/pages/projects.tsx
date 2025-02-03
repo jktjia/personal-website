@@ -13,7 +13,11 @@ export default function Projects() {
       <div className="grid gap-6 pb-10 p-6 max-w-7xl lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         <ExperienceCard>
           <ExperienceHeader>
-            <a href="https://github.com/jktjia/CS3200-project" target="_blank">
+            <a
+              href="https://github.com/jktjia/CS3200-project"
+              target="_blank"
+              className="hover:underline-offset-4 hover:underline"
+            >
               Loggr
             </a>
           </ExperienceHeader>
@@ -32,6 +36,7 @@ export default function Projects() {
             <a
               href="https://github.com/jktjia/CS3500-image-processor"
               target="_blank"
+              className="hover:underline-offset-4 hover:underline"
             >
               Image Processor
             </a>

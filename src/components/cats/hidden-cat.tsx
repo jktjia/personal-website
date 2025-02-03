@@ -28,7 +28,7 @@ export default function HiddenCat({
   const clickCatAndAlert = () => {
     if (!isCatFound(n)) {
       findCat(n);
-      const newRemaining = catsRemaining() - 1;
+      const newRemaining = catsRemaining - 1;
       if (newRemaining) {
         addAlert({
           severity: AlertSeverity.INFO,
