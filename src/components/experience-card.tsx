@@ -1,39 +1,47 @@
 import "@/lib/globals.css";
 import { ReactNode } from "react";
-import ScrollAppearDiv from "./scroll-appear-div";
 
-export default function ExperienceCard({
-  children,
-  className,
-}: {
-  href?: string;
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <ScrollAppearDiv className="bg-tertiary p-10 rounded-lg text-primary flex-col font-serif">
-        {children}
-      </ScrollAppearDiv>
-    </div>
-  );
-}
-
-function ExperienceHeader({ children }: { children: ReactNode }) {
+export function ExperienceHeader({ children }: { children: ReactNode }) {
   return <div className="text-2xl font-extrabold">{children}</div>;
 }
 
-function ExperienceSubheader({ children }: { children: ReactNode }) {
+export function ExperienceSubheader({ children }: { children: ReactNode }) {
   return (
     <div className="text-xl font-semibold opacity-75 italic">{children}</div>
   );
 }
 
-function ExperienceDescription({ children }: { children: ReactNode }) {
-  return <div className="py-4 self-center text-lg text-left">{children}</div>;
+export function ExperienceDescription({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={"py-4 self-center text-lg text-left " + className}>
+      {children}
+    </div>
+  );
 }
 
-function ExperienceTags({
+export function ExperienceImage({
+  src,
+  className,
+}: {
+  src: string;
+  className?: string;
+}) {
+  return (
+    <img
+      src={src}
+      className={"h-full object-cover rounded-lg overflow-hidden" + className}
+      style={{ aspectRatio: "400/300" }}
+    />
+  );
+}
+
+export function ExperienceTags({
   tags,
   children,
 }: {
@@ -54,10 +62,3 @@ function ExperienceTags({
     </div>
   );
 }
-
-export {
-  ExperienceHeader,
-  ExperienceSubheader,
-  ExperienceDescription,
-  ExperienceTags,
-};

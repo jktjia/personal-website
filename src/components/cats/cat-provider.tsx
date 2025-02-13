@@ -10,7 +10,7 @@ export default function CatProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const context = useCatSetup(13);
+  const context = useCatSetup(18);
 
   return <CatContext.Provider value={context}>{children}</CatContext.Provider>;
 }

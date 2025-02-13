@@ -19,7 +19,9 @@ export default function HiddenCat({
   const { catsRemaining, isCatFound, findCat } = useCats();
   const classNameFull = cn(
     `text-${color}`,
-    isCatFound(n) || visible ? "opacity-100 " : "opacity-0 hover:opacity-50 ",
+    isCatFound(n) || visible
+      ? "opacity-100 "
+      : "opacity-0 hover:opacity-50 hover:cursor-pointer",
     className,
   );
 

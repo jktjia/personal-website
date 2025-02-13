@@ -1,17 +1,24 @@
 import HiddenCat from "@/components/cats/hidden-cat";
-import ExperienceCard, {
+import {
   ExperienceDescription,
   ExperienceHeader,
   ExperienceSubheader,
   ExperienceTags,
 } from "@/components/experience-card";
+import ProjectCards, { ProjectCard } from "@/components/project-cards";
+import imageProcessor from "@/assets/image-processor.png";
+import cairn from "@/assets/cairn.png";
+import loggr from "@/assets/loggr.png";
 
 export default function Projects() {
   return (
     <>
       <div className="text-5xl pt-10 pl-6">My Projects</div>
-      <div className="grid gap-6 pb-10 p-6 max-w-7xl lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        <ExperienceCard>
+      <ProjectCards
+        className="m-2 max-w-7xl mb-10"
+        projectNames={["Cairn", "Loggr", "Image Processor"]}
+      >
+        <ProjectCard imageSrc={cairn}>
           <ExperienceHeader>
             <div className="grid w-full justify-center gap-6 items-center">
               <HiddenCat n={12} color="secondary" className="col-start-1" />
@@ -27,12 +34,12 @@ export default function Projects() {
           </ExperienceHeader>
           <ExperienceSubheader>January 2025</ExperienceSubheader>
           <ExperienceDescription>
-            Cairn is a platform for travelers to plan trips without having to
-            worry about their schedule. Cairn allows its users to add events
-            they find interesting while recommending a schedule that works
-            around their current constraints. Our goal is to create a
-            streamlined experience that allows users to plan trips while
-            focusing on the events themselves.
+            Platform for travelers to plan trips without having to worry about
+            their schedule. Cairn allows its users to add events they find
+            interesting while recommending a schedule that works around their
+            current constraints. Our goal was to create a streamlined experience
+            that allows users to plan trips while focusing on the events
+            themselves.
           </ExperienceDescription>
           <ExperienceTags
             tags={[
@@ -44,9 +51,9 @@ export default function Projects() {
               "Git",
               "Azure",
             ]}
-          ></ExperienceTags>
-        </ExperienceCard>
-        <ExperienceCard>
+          />
+        </ProjectCard>
+        <ProjectCard imageSrc={loggr}>
           <ExperienceHeader>
             <a
               href="https://github.com/jktjia/CS3200-project"
@@ -60,13 +67,13 @@ export default function Projects() {
           <ExperienceDescription>
             Simple social media app that allows users to log information of
             their choice publicly or privately, view other user&apos;s logs, and
-            follow various topics and other users
+            follow various topics and other users.
           </ExperienceDescription>
           <ExperienceTags tags={["MySQL", "Docker", "Flask", "Git"]}>
             <HiddenCat n={10} color="secondary" />
           </ExperienceTags>
-        </ExperienceCard>
-        <ExperienceCard>
+        </ProjectCard>
+        <ProjectCard imageSrc={imageProcessor}>
           <ExperienceHeader>
             <a
               href="https://github.com/jktjia/CS3500-image-processor"
@@ -81,11 +88,11 @@ export default function Projects() {
             GUI application to apply filters and transform images that also
             allowed the user to import, export, and convert between four image
             formats structured using principles of object-oriented design and
-            the MVC model
+            the MVC model.
           </ExperienceDescription>
           <ExperienceTags tags={["Java", "Swing"]} />
-        </ExperienceCard>
-      </div>
+        </ProjectCard>
+      </ProjectCards>
     </>
   );
 }

@@ -1,10 +1,11 @@
 import HiddenCat from "@/components/cats/hidden-cat";
-import ExperienceCard, {
+import {
   ExperienceHeader,
   ExperienceDescription,
   ExperienceSubheader,
   ExperienceTags,
 } from "@/components/experience-card";
+import WorkCard from "@/components/work-card";
 import "@/lib/globals.css";
 
 export default function Work() {
@@ -15,7 +16,7 @@ export default function Work() {
       </div>
       <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 px-6 max-w-5xl">
         <HiddenCat n={8} />
-        <ExperienceCard className="lg:col-start-1 lg:row-start-1 lg:row-span-2">
+        <WorkCard className="lg:col-start-1 lg:row-start-1 lg:row-span-2">
           <ExperienceHeader>Verizon Communications x NExT Lab</ExperienceHeader>
           <ExperienceSubheader>
             <div className="grid grid-cols-7">
@@ -32,14 +33,27 @@ export default function Work() {
           </ExperienceSubheader>
           <ExperienceDescription>
             <ul className="list-disc pl-4">
-              <li>Collaborated with 5 other developers</li>
+              <li>
+                As Team Lead of a university-backed consulting group, led Agile
+                workflows, managing 400+ commits in a month, conducting code
+                reviews, writing tickets, and delivered an MVP in 3 iterative
+                stakeholder presentations
+              </li>
+              <li>
+                Wrote a scalable React app deployed using Azure Container
+                Service and Docker Compose for onboarding
+              </li>
+              <li>
+                Built RESTful endpoints with Express and Bun, integrating APIs
+                like TripAdvisor, Google Maps & Calendar, GeoDB, etc
+              </li>
             </ul>
           </ExperienceDescription>
           <ExperienceTags
             tags={["TypeScript", "Tailwind", "React", "Docker", "Vite", "Git"]}
           />
-        </ExperienceCard>
-        <ExperienceCard className="lg:col-start-2 lg:row-span-2">
+        </WorkCard>
+        <WorkCard className="lg:col-start-2 lg:row-span-2">
           <ExperienceHeader>Northeastern University</ExperienceHeader>
           <ExperienceSubheader>
             Teaching Assistant for Algorithms
@@ -67,11 +81,11 @@ export default function Work() {
               </li>
             </ul>
           </ExperienceDescription>
-          <ExperienceTags tags={["LaTeX"]}>
+          <ExperienceTags tags={["LaTeX", "Algorithms", "Teaching"]}>
             <HiddenCat n={4} className="text-secondary" />
           </ExperienceTags>
-        </ExperienceCard>
-        <ExperienceCard className="lg:col-start-1 lg:row-span-2">
+        </WorkCard>
+        <WorkCard className="lg:col-start-1 lg:row-span-2">
           <ExperienceHeader>UMass Chan Medical School</ExperienceHeader>
           <ExperienceSubheader>
             Quantitative Methods Core Intern
@@ -104,8 +118,10 @@ export default function Work() {
               </li>
             </ul>
           </ExperienceDescription>
-          <ExperienceTags tags={["SAS", "Data Analysis"]} />
-        </ExperienceCard>
+          <ExperienceTags
+            tags={["Data Analysis", "Data Visualization", "SAS"]}
+          />
+        </WorkCard>
         <div className="w-full h-full flex flex-row-reverse">
           <HiddenCat n={9} />
         </div>
