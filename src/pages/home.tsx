@@ -41,7 +41,7 @@ export default function Home() {
         <div className="text-8xl font-extrabold">Jamie Kai Tjia</div>
         <div className="flex flex-col">
           <HomePageLink to="about" label="About Me" />
-          <HomePageLink to="contact" label="Contact Me" />
+          {/* <HomePageLink to="contact" label="Contact Me" /> */}
         </div>
       </ScrollAppearDiv>
       <HiddenCat n={6} className="absolute m-3 dark:text-white" />

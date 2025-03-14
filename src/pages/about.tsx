@@ -23,7 +23,8 @@ export default function About() {
         I have experience quickly learning new programming languages and
         analyzing healthcare data from my internship at UMass Medical School,
         and my time as a TA has strengthened my communication skills and my
-        knowledge of algorithms.
+        knowledge of algorithms. At my recent co-op at NExT, I worked as a
+        full-stack developer and I also mangaged client communications.
       </div>
       <div className="flex flex-row items-center mx-5 gap-2 hover:opacity-50 border-b-2 transition-colors border-transparent hover:border-primary dark:hover:border-white">
         <HiddenCat n={1} />

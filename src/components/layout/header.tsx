@@ -44,9 +44,6 @@ export default function Header() {
       </NavLink>
       <div className="flex justify-start col-span-3 items-center gap-10">
         <HeaderItem label="Projects" to="projects" />
-        <HeaderItem label="Contact" to="contact" />
-      </div>
-      <div>
         {catsRemaining ? (
           <HiddenCat n={0} className="h-10 w-10" />
         ) : (

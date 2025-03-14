@@ -1,6 +1,7 @@
 import { Children, ReactNode, useState } from "react";
 import HiddenCat from "./cats/hidden-cat";
 import { ExperienceImage } from "./experience-card";
+import { Link } from "react-router";
 
 function ExpandableCard({
   index,
@@ -33,7 +34,7 @@ function ExpandableCard({
           >
             {name}
           </button>
-          <HiddenCat n={15 + index} className="md:m-5 m-2 bottom-0 relative" />
+          <HiddenCat n={17 + index} className="md:m-5 m-2 bottom-0 relative" />
         </>
       )}
     </div>
@@ -41,10 +42,12 @@ function ExpandableCard({
 }
 
 export function ProjectCard({
+  href,
   imageSrc,
   children,
   className,
 }: {
+  href: string;
   imageSrc: string;
   children: ReactNode;
   className?: string;
@@ -52,9 +55,13 @@ export function ProjectCard({
   return (
     <div className={"flex-col p-10 " + className}>
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="h-[50vh] flex justify-center">
+        <Link
+          to={href}
+          target="_blank"
+          className="h-[50vh] flex justify-center hover:opacity-75 transition-opacity ease-in"
+        >
           <ExperienceImage src={imageSrc} className="max-h-full" />
-        </div>
+        </Link>
         <div>{children}</div>
       </div>
     </div>

@@ -14,7 +14,7 @@ export default function Work() {
       <div className="text-5xl pt-10 w-full text-center">
         My Work Experience
       </div>
-      <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 px-6 max-w-5xl">
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 max-w-5xl">
         <HiddenCat n={8} />
         <WorkCard className="lg:col-start-1 lg:row-start-1 lg:row-span-2">
           <ExperienceHeader>Verizon Communications x NExT Lab</ExperienceHeader>
@@ -34,18 +34,14 @@ export default function Work() {
           <ExperienceDescription>
             <ul className="list-disc pl-4">
               <li>
-                As Team Lead of a university-backed consulting group, led Agile
-                workflows, managing 400+ commits in a month, conducting code
-                reviews, writing tickets, and delivered an MVP in 3 iterative
-                stakeholder presentations
+                As part of a university-backed consulting group, led Agile
+                workflows, conducted code reviews, wrote tickets, and managed
+                client communications
               </li>
               <li>
-                Wrote a scalable React app deployed using Azure Container
-                Service and Docker Compose for onboarding
-              </li>
-              <li>
-                Built RESTful endpoints with Express and Bun, integrating APIs
-                like TripAdvisor, Google Maps & Calendar, GeoDB, etc
+                Wrote a scalable React app with Express REST API backend
+                deployed using Azure Container Service and Docker Compose for
+                onboarding
               </li>
             </ul>
           </ExperienceDescription>
@@ -71,13 +67,12 @@ export default function Work() {
                 responsibilities
               </li>
               <li>
-                Facilitated 3+ hours of weekly recitations to help students
-                understand class material
+                Facilitated 5+ hours of weekly recitations and office hours to
+                help students understand class material
               </li>
               <li>
                 Provided answers to student questions regarding class material
-                and course organization in weekly office hours and on the
-                course&apos;s Q&A platform
+                and course organization on the course&apos;s Q&A platform
               </li>
             </ul>
           </ExperienceDescription>

@@ -10,7 +10,7 @@ function CatPage() {
   return (
     <>
       <div className="text-5xl pt-10">Kai's Page of Nonsense</div>
-      <div></div>
+      <div>More coming soon!</div>
       <div className="flex items-center gap-2">
         Done with the nonsense? Click this
         <ArrowRight className="h-4 w-4" />

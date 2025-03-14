@@ -15,20 +15,17 @@ export default function Projects() {
     <>
       <div className="text-5xl pt-10 pl-6">My Projects</div>
       <ProjectCards
-        className="m-2 max-w-7xl mb-10"
+        className="max-w-7xl mb-10"
         projectNames={["Cairn", "Loggr", "Image Processor"]}
       >
-        <ProjectCard imageSrc={cairn}>
+        <ProjectCard
+          href="https://cairn-frontend.wittyfield-769b814d.eastus.azurecontainerapps.io/"
+          imageSrc={cairn}
+        >
           <ExperienceHeader>
             <div className="grid w-full justify-center gap-6 items-center">
               <HiddenCat n={12} color="secondary" className="col-start-1" />
-              <a
-                href="https://cairn-frontend.wittyfield-769b814d.eastus.azurecontainerapps.io/"
-                target="_blank"
-                className="hover:underline-offset-4 hover:underline col-start-2"
-              >
-                Cairn
-              </a>
+              Cairn
               <HiddenCat n={11} color="secondary" className="col-start-3" />
             </div>
           </ExperienceHeader>
@@ -53,37 +50,36 @@ export default function Projects() {
             ]}
           />
         </ProjectCard>
-        <ProjectCard imageSrc={loggr}>
-          <ExperienceHeader>
-            <a
-              href="https://github.com/jktjia/CS3200-project"
-              target="_blank"
-              className="hover:underline-offset-4 hover:underline"
-            >
-              Loggr
-            </a>
-          </ExperienceHeader>
+        <ProjectCard
+          href="https://github.com/jktjia/CS3200-project"
+          imageSrc={loggr}
+        >
+          <ExperienceHeader>Loggr</ExperienceHeader>
           <ExperienceSubheader>November - December 2023</ExperienceSubheader>
           <ExperienceDescription>
-            Simple social media app that allows users to log information of
-            their choice publicly or privately, view other user&apos;s logs, and
-            follow various topics and other users.
+            Worked on a team of 5 students to create a simple social media app
+            that allows users to log information of their choice publicly or
+            privately, view other user&apos;s logs, and follow various topics
+            and other users.
           </ExperienceDescription>
-          <ExperienceTags tags={["MySQL", "Docker", "Flask", "Git"]}>
+          <ExperienceTags
+            tags={["MySQL", "Docker", "Python", "Flask", "Git", "Appsmith"]}
+          >
             <HiddenCat n={10} color="secondary" />
           </ExperienceTags>
         </ProjectCard>
-        <ProjectCard imageSrc={imageProcessor}>
-          <ExperienceHeader>
-            <a
-              href="https://github.com/jktjia/CS3500-image-processor"
-              target="_blank"
-              className="hover:underline-offset-4 hover:underline"
-            >
-              Image Processor
-            </a>
-          </ExperienceHeader>
-          <ExperienceSubheader>November - December 2022</ExperienceSubheader>
+        <ProjectCard
+          href="https://github.com/jktjia/CS3500-image-processor"
+          imageSrc={imageProcessor}
+        >
+          <ExperienceHeader>Image Processor</ExperienceHeader>
+          <ExperienceSubheader>
+            <div className="flex justify-center">
+              <HiddenCat n={15} />
+              <div className="flex-grow">November - December 2022</div>
+              <HiddenCat n={16} />
+            </div>
+          </ExperienceSubheader>
           <ExperienceDescription>
             GUI application to apply filters and transform images that also
             allowed the user to import, export, and convert between four image

@@ -10,7 +10,7 @@ import Work from "./pages/work";
 import NotFound from "./pages/not-found";
 import Projects from "./pages/projects";
 import About from "./pages/about";
-import Contact from "./pages/contact";
+// import Contact from "./pages/contact";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -22,7 +22,7 @@ createRoot(document.getElementById("root")!).render(
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="cats" element={<Cats />} />
-              <Route path="contact" element={<Contact />} />
+              {/* <Route path="contact" element={<Contact />} /> */}
               <Route path="experience" element={<Work />} />
               <Route path="projects" element={<Projects />} />
               <Route path="*" element={<NotFound />} />

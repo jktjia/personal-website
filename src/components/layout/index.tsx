@@ -7,7 +7,7 @@ export default function Layout() {
   return (
     <div className="m-0 flex flex-col justify-self-center-center items-center justify-items-center text-center min-w-full min-h-screen font-[family-name:var(--font-geist-sans)]">
       <Header />
-      <main className="flex-grow flex flex-col gap-8 items-center sm:items-start overflow-y-auto">
+      <main className="flex-grow flex flex-col gap-8 items-center sm:items-start overflow-y-auto px-6">
         <Outlet />
       </main>
       <Footer />
