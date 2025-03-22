@@ -14,9 +14,9 @@ import About from "./pages/about";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <AlertsProvider>
-        <CatProvider>
+    <AlertsProvider>
+      <CatProvider>
+        <BrowserRouter basename="/personal-website">
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<Home />} />
@@ -28,8 +28,8 @@ createRoot(document.getElementById("root")!).render(
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
-        </CatProvider>
-      </AlertsProvider>
-    </BrowserRouter>
+        </BrowserRouter>
+      </CatProvider>
+    </AlertsProvider>
   </StrictMode>,
 );

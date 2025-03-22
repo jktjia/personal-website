@@ -13,6 +13,7 @@ import loggr from "@/assets/loggr.png";
 export default function Projects() {
   return (
     <>
+      <title>My Projects</title>
       <div className="text-5xl pt-10 pl-6">My Projects</div>
       <ProjectCards
         className="max-w-7xl mb-10"

@@ -6,6 +6,7 @@ import { Link } from "react-router";
 export default function About() {
   return (
     <>
+      <title>About Me</title>
       <div className="text-4xl flex flex-row items-center gap-2 pt-10 mx-5">
         About Me
         <HiddenCat n={2} />
