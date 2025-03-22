@@ -11,6 +11,7 @@ import "@/lib/globals.css";
 export default function Work() {
   return (
     <>
+      <title>My Work Experience</title>
       <div className="text-5xl pt-10 w-full text-center">
         My Work Experience
       </div>

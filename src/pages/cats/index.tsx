@@ -9,6 +9,7 @@ function CatPage() {
   const { reset } = useCats();
   return (
     <>
+      <title>Cats</title>
       <div className="text-5xl pt-10">Kai's Page of Nonsense</div>
       <div>More coming soon!</div>
       <div className="flex items-center gap-2">

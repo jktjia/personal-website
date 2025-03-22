@@ -30,25 +30,28 @@ function HomePageLink({
 
 export default function Home() {
   return (
-    <div
-      className={
-        "bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%" +
-        "text-white dark:bg-clip-text dark:text-transparent flex-grow w-screen grid relative"
-      }
-    >
-      <ScrollAppearDiv className="row-start-2 font-mono gap-5 flex flex-col max-w-fit justify-self-center">
-        <div className="text-4xl text-left">Hi, I&apos;m</div>
-        <div className="text-8xl font-extrabold">Jamie Kai Tjia</div>
-        <div className="flex flex-col">
-          <HomePageLink to="about" label="About Me" />
-          {/* <HomePageLink to="contact" label="Contact Me" /> */}
-        </div>
-      </ScrollAppearDiv>
-      <HiddenCat n={6} className="absolute m-3 dark:text-white" />
-      <HiddenCat
-        n={7}
-        className="absolute m-3 bottom-0 right-0 dark:text-white"
-      />
-    </div>
+    <>
+      <title>Home</title>
+      <div
+        className={
+          "bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%" +
+          "text-white dark:bg-clip-text dark:text-transparent flex-grow w-screen grid relative"
+        }
+      >
+        <ScrollAppearDiv className="row-start-2 font-mono gap-5 flex flex-col max-w-fit justify-self-center">
+          <div className="text-4xl text-left">Hi, I&apos;m</div>
+          <div className="text-8xl font-extrabold">Jamie Kai Tjia</div>
+          <div className="flex flex-col">
+            <HomePageLink to="about" label="About Me" />
+            {/* <HomePageLink to="contact" label="Contact Me" /> */}
+          </div>
+        </ScrollAppearDiv>
+        <HiddenCat n={6} className="absolute m-3 dark:text-white" />
+        <HiddenCat
+          n={7}
+          className="absolute m-3 bottom-0 right-0 dark:text-white"
+        />
+      </div>
+    </>
   );
 }

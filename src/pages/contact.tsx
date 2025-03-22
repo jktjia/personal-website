@@ -1,6 +1,7 @@
 export default function Contact() {
   return (
     <>
+      <title>Contact Me</title>
       <div className="text-center text-4xl flex flex-row items-center gap-2 pt-10">
         Contact Me
       </div>
