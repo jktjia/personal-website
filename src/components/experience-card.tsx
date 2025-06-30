@@ -1,4 +1,5 @@
 import "@/lib/globals.css";
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 export function ExperienceHeader({ children }: { children: ReactNode }) {
@@ -35,7 +36,10 @@ export function ExperienceImage({
   return (
     <img
       src={src}
-      className={"h-full object-cover rounded-lg overflow-hidden" + className}
+      className={cn(
+        "h-full object-cover rounded-lg overflow-hidden",
+        className,
+      )}
       style={{ aspectRatio: "400/300" }}
     />
   );

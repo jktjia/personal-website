@@ -5,7 +5,7 @@ import AlertsProvider from "./components/alerts/alert-provider";
 import Home from "@/pages/home";
 import CatProvider from "./components/cats/cat-provider";
 import Cats from "./pages/cats";
-import Layout from "./components/layout";
+import Layout, { HeaderLayout } from "./components/layout";
 import Work from "./pages/work";
 import NotFound from "./pages/not-found";
 import Projects from "./pages/projects";
@@ -20,12 +20,14 @@ createRoot(document.getElementById("root")!).render(
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="cats" element={<Cats />} />
-              {/* <Route path="contact" element={<Contact />} /> */}
-              <Route path="experience" element={<Work />} />
-              <Route path="projects" element={<Projects />} />
-              <Route path="*" element={<NotFound />} />
+              <Route element={<HeaderLayout />}>
+                <Route path="about" element={<About />} />
+                <Route path="cats" element={<Cats />} />
+                {/* <Route path="contact" element={<Contact />} /> */}
+                <Route path="experience" element={<Work />} />
+                <Route path="projects" element={<Projects />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>

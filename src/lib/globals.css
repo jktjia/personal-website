@@ -9,16 +9,19 @@
 }
 
 :root {
-  --background: var(--color-white);
-  --foreground: var(--color-primary);
+  font-family: monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --background: var(--color-black);
+  --foreground: var(--color-white);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--color-black);
     --foreground: var(--color-white);
   }
-}
+} */
 
 body {
   color: var(--foreground);

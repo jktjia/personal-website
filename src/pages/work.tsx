@@ -11,24 +11,19 @@ import "@/lib/globals.css";
 export default function Work() {
   return (
     <>
-      <title>My Work Experience</title>
-      <div className="text-5xl pt-10 w-full text-center">
-        My Work Experience
+      <title>Experience</title>
+      <div className="text-5xl pt-10 w-full text-center flex flex-row gap-4 items-center">
+        Professional Experience <HiddenCat n={8} />
       </div>
-      <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 max-w-5xl">
-        <HiddenCat n={8} />
-        <WorkCard className="lg:col-start-1 lg:row-start-1 lg:row-span-2">
-          <ExperienceHeader>Verizon Communications x NExT Lab</ExperienceHeader>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 pb-10 max-w-7xl">
+        <WorkCard>
+          <ExperienceHeader>Verizon x NExT Lab</ExperienceHeader>
           <ExperienceSubheader>
             <div className="grid grid-cols-7">
               <HiddenCat n={5} className="col-start-1" />
               <div className="col-start-2 col-span-5">
-                Software Engineering Co-op
-                <div className="text-sm">
-                  Boston, MA
-                  <br />
-                  January - July 2025
-                </div>
+                SWE Co-op
+                <div className="text-sm">January - July 2025</div>
               </div>
             </div>
           </ExperienceSubheader>
@@ -50,15 +45,11 @@ export default function Work() {
             tags={["TypeScript", "Tailwind", "React", "Docker", "Vite", "Git"]}
           />
         </WorkCard>
-        <WorkCard className="lg:col-start-2 lg:row-span-2">
+        <WorkCard>
           <ExperienceHeader>Northeastern University</ExperienceHeader>
           <ExperienceSubheader>
-            Teaching Assistant for Algorithms
-            <div className="text-sm">
-              Boston, MA
-              <br />
-              September 2023 - December 2024
-            </div>
+            Algorithms TA
+            <div className="text-sm">September 2023 - December 2024</div>
           </ExperienceSubheader>
           <ExperienceDescription>
             <ul className="list-disc pl-4">
@@ -81,15 +72,11 @@ export default function Work() {
             <HiddenCat n={4} className="text-secondary" />
           </ExperienceTags>
         </WorkCard>
-        <WorkCard className="lg:col-start-1 lg:row-span-2">
+        <WorkCard>
           <ExperienceHeader>UMass Chan Medical School</ExperienceHeader>
           <ExperienceSubheader>
             Quantitative Methods Core Intern
-            <div className="text-sm">
-              Worcester, MA
-              <br />
-              June - August 2023
-            </div>
+            <div className="text-sm">June - August 2023</div>
           </ExperienceSubheader>
           <ExperienceDescription>
             <ul className="list-disc pl-4">

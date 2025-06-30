@@ -11,5 +11,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "https://jktjia.github.io/personal-website/",
+  base: "https://jktjia.github.io/personal-website",
 });

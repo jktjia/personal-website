@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 interface CatContextType {
   isCatFound: (n: number) => boolean;
   findCat: (n: number) => void;
@@ -25,7 +27,22 @@ interface AlertContextType {
   dismissAlert: (id: string) => void;
 }
 
-export type { CatContextType, AlertType, AlertProps, AlertContextType };
+interface ProjectType {
+  name: string;
+  timespan: string;
+  header: JSX.Element;
+  image: string;
+  tags: string[];
+  content: string;
+}
+
+export type {
+  CatContextType,
+  AlertType,
+  AlertProps,
+  AlertContextType,
+  ProjectType,
+};
 
 export enum AlertSeverity {
   INFO = "info",

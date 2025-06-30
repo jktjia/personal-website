@@ -10,7 +10,7 @@ export default function WorkCard({
 }) {
   return (
     <div className={className}>
-      <ScrollAppearDiv className="bg-tertiary p-10 rounded-lg text-primary flex-col font-serif">
+      <ScrollAppearDiv className="bg-primary p-6 text-foreground flex-col">
         {children}
       </ScrollAppearDiv>
     </div>

@@ -1,7 +1,13 @@
-import { Children, ReactNode, useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
 import HiddenCat from "./cats/hidden-cat";
-import { ExperienceImage } from "./experience-card";
+import {
+  ExperienceHeader,
+  ExperienceImage,
+  ExperienceSubheader,
+} from "./experience-card";
 import { Link } from "react-router";
+import { ProjectType } from "@/lib/types";
+import { cn, responsiveMargins } from "@/lib/utils";
 
 function ExpandableCard({
   index,
@@ -17,24 +23,25 @@ function ExpandableCard({
   children: ReactNode;
 }) {
   return (
-    <div
-      className={
-        "bg-tertiary rounded-lg text-primary font-serif " +
-        "items-center justify-center flex flex-col"
-      }
-    >
+    <div className="bg-primary items-center justify-center flex flex-col">
       {selected === index ? (
-        children
+        <div className={responsiveMargins}>{children}</div>
       ) : (
         <>
           <button
-            className="md:m-5 m-2 flex-grow text-start hover:opacity-50"
+            className={cn(
+              responsiveMargins,
+              "flex-grow text-start hover:opacity-50 h-20",
+            )}
             style={{ writingMode: "vertical-lr" }}
             onClick={onClick}
           >
             {name}
           </button>
-          <HiddenCat n={17 + index} className="md:m-5 m-2 bottom-0 relative" />
+          <HiddenCat
+            n={13 + 2 * index}
+            className={cn(responsiveMargins, "bottom-0 relative")}
+          />
         </>
       )}
     </div>
@@ -43,7 +50,6 @@ function ExpandableCard({
 
 export function ProjectCard({
   href,
-  imageSrc,
   children,
   className,
 }: {
@@ -59,39 +65,51 @@ export function ProjectCard({
           to={href}
           target="_blank"
           className="h-[50vh] flex justify-center hover:opacity-75 transition-opacity ease-in"
-        >
-          <ExperienceImage src={imageSrc} className="max-h-full" />
-        </Link>
-        <div>{children}</div>
+        ></Link>
+        <div className="p-6">{children}</div>
       </div>
     </div>
   );
 }
 
 export default function ProjectCards({
-  projectNames,
+  projects,
   className,
-  children,
 }: {
-  projectNames: string[];
+  projects: ProjectType[];
   className?: string;
-  children: ReactNode;
 }) {
   const [selected, setSelected] = useState(0);
-  const cardsArray = Children.toArray(children);
+
+  const current = useMemo(() => projects[selected], [selected]);
 
   return (
-    <div className={"flex flex-row gap-2 h-fit " + className}>
-      {cardsArray.map((card, idx) => (
-        <ExpandableCard
-          index={idx}
-          name={projectNames[idx]}
-          selected={selected}
-          onClick={() => setSelected(idx)}
-        >
-          {card}
-        </ExpandableCard>
-      ))}
+    <div
+      className={cn("flex flex-col gap-20 items-start text-start", className)}
+    >
+      <div className={"flex flex-row gap-2"}>
+        {projects.map((p, idx) => (
+          <ExpandableCard
+            index={idx}
+            name={p.name}
+            selected={selected}
+            onClick={() => setSelected(idx)}
+          >
+            <ExperienceHeader>
+              <div className="flex flex-row w-full">
+                {current.name}
+                <div className="flex-grow" />
+                <HiddenCat n={14 + 2 * idx} className="col-start-3" />
+              </div>
+            </ExperienceHeader>
+            <ExperienceSubheader>{current.timespan}</ExperienceSubheader>
+          </ExpandableCard>
+        ))}
+      </div>
+      <div className="flex flex-row w-full justify-center">
+        <ExperienceImage src={current.image} className="w-4/5" />
+      </div>
+      <div>{current.content}</div>
     </div>
   );
 }
