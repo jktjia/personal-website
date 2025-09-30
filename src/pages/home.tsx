@@ -4,7 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import { cn } from "@/lib/utils";
 import ScrollAppearDiv from "@/components/scroll-appear-div";
-// import { about_text } from "@/lib/about";
+import useTypedText from "@/hooks/use-typed-text";
+import useTypedMultiText from "@/hooks/use-typed-multi-text";
 
 function HomePageLink({
   label,
@@ -15,6 +16,8 @@ function HomePageLink({
   to: string;
   className?: string;
 }) {
+  const { currentText } = useTypedText(label);
+
   return (
     <NavLink
       to={to}
@@ -25,13 +28,19 @@ function HomePageLink({
         className,
       )}
     >
-      {label}
+      {currentText}
       <ArrowRight className="text-white" />
     </NavLink>
   );
 }
 
+const greeting = "Hi, I'm";
+const name = "Jamie Kai Tjia";
+const text = [greeting, name];
+
 export default function Home() {
+  const { currentText, currentIndex, showAll } = useTypedMultiText(text, 50);
+
   return (
     <>
       <title>Home</title>
@@ -41,21 +50,21 @@ export default function Home() {
           "to-emerald-500 to-80% bg-clip-text text-transparent flex-grow w-screen",
           "grid relative",
         )}
+        onClick={showAll}
       >
         <ScrollAppearDiv className="row-start-2 font-mono gap-5 flex flex-col max-w-fit justify-self-center">
           <div className="lg:text-5xl md:text-4xl sm:text-3xl text-2xl text-left">
-            Hi, I&apos;m
+            {currentText[0]}
           </div>
           <div className="lg:text-9xl md:text-8xl sm:text-7xl text-4xl font-extrabold ">
-            Jamie Kai Tjia
+            {currentText[1]}
           </div>
-          {/* <div className="text-white text-xs w-1/3 text-right">
-            {about_text}
-          </div> */}
-          <div className="flex flex-col lg:text-3xl md:text-2xl sm:text-xl text-lg">
-            <HomePageLink to="experience" label="Work Experience" />
-            {/* <HomePageLink to="contact" label="Contact Me" /> */}
-          </div>
+          {currentIndex > greeting.length + name.length && (
+            <div className="flex flex-col lg:text-3xl md:text-2xl sm:text-xl text-lg">
+              <HomePageLink to="experience" label="Work Experience" />
+              {/* <HomePageLink to="contact" label="Contact Me" /> */}
+            </div>
+          )}
         </ScrollAppearDiv>
         <HiddenCat n={17} className="absolute m-3 dark:text-white" />
       </div>

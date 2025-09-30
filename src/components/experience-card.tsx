@@ -52,7 +52,6 @@ export function ToolIcon({ tool }: { tool: string }) {
   return (
     <a
       className="h-10 aspect-square items-center justify-center flex hover:bg-foreground"
-      key={tool}
       href={toolInfo[tool].href}
     >
       <img src={toolInfo[tool].logo} alt={toolInfo[tool].name} />
@@ -77,7 +76,10 @@ function ExpandableCard({
 }) {
   return (
     <motion.div layout className="bg-primary">
-      <div className="h-full items-center justify-center flex flex-col overflow-x-auto">
+      <motion.div
+        layout="position"
+        className="h-full items-center justify-center flex flex-col overflow-x-auto"
+      >
         {selected === index ? (
           <div className={responsiveMargins}>
             <ExperienceHeader>
@@ -107,7 +109,7 @@ function ExpandableCard({
             />
           </>
         )}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -150,7 +152,7 @@ export function ExpandableCards({
           />
         ))}
       </motion.div>
-      {children}
+      <motion.div transition={{ type: "tween" }}>{children}</motion.div>
     </div>
   );
 }

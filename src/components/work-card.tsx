@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { ExpandableCards } from "./experience-card";
 import { WorkType } from "@/lib/types";
+import useTypedMultiText from "@/hooks/use-typed-multi-text";
 
 export default function WorkCards({
   jobs,
@@ -13,6 +14,8 @@ export default function WorkCards({
 
   const current = useMemo(() => jobs[selected], [jobs, selected]);
 
+  const { currentText, showAll } = useTypedMultiText(current.content);
+
   return (
     <ExpandableCards
       items={jobs.map((j) => {
@@ -23,14 +26,19 @@ export default function WorkCards({
       startN={4}
       className={className}
     >
-      <div className="flex flex-col sm:flex-row w-full justify-center gap-4">
-        <div className="flex flex-col sm:w-1/3 gap-4">
+      <div
+        className="flex flex-col sm:flex-row min-w-full justify-center gap-4"
+        onClick={showAll}
+      >
+        <div className="flex flex-col sm:min-w-60 sm:max-w-60 gap-4">
           <div className="text-2xl font-bold">{current.employer}</div>
           {current.logo && <img src={current.logo} />}
           <div>{current.position}</div>
           <div className="opacity-50">{current.timespan}</div>
         </div>
-        <div>{current.content}</div>
+        <ul className="list-disc pl-4 flex-grow">
+          {currentText.map((t, idx) => t && <li key={idx}>{t}</li>)}
+        </ul>
       </div>
     </ExpandableCards>
   );

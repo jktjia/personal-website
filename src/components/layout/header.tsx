@@ -1,5 +1,4 @@
 import "@/lib/globals.css";
-import { motion } from "motion/react";
 import { NavLink } from "react-router";
 import HiddenCat from "../cats/hidden-cat";
 import { useCats } from "@/hooks/use-cats";
@@ -52,11 +51,10 @@ export default function Header() {
   }, [setMenuOpen]);
 
   return (
-    <motion.header
-      layout
+    <header
       className={cn(
-        "sticky top-0 border-b-2 border-b-white flex flex-col items-center text-white bg-primary w-full gap-4 px-5 min-h-20 z-1",
-        menuOpen ? "h-7/8" : "h-1/8",
+        "sm:sticky top-0 border-b-2 border-b-white flex flex-col items-center text-white bg-primary w-full gap-4 px-5 min-h-20 z-1",
+        menuOpen ? "h-fit" : "h-1/8",
       )}
     >
       <div
@@ -85,6 +83,6 @@ export default function Header() {
       >
         <MenuItems />
       </div>
-    </motion.header>
+    </header>
   );
 }

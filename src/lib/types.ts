@@ -32,7 +32,6 @@ interface ProjectType {
   timespan: string;
   header: JSX.Element;
   image: string;
-  tags?: string[];
   content: string;
   tools: string[];
 }
@@ -42,7 +41,7 @@ interface WorkType {
   position: string;
   timespan: string;
   header: JSX.Element;
-  content: JSX.Element;
+  content: string[];
   logo?: string;
 }
 
