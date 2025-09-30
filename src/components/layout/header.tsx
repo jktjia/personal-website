@@ -1,8 +1,11 @@
 import "@/lib/globals.css";
+import { motion } from "motion/react";
 import { NavLink } from "react-router";
 import HiddenCat from "../cats/hidden-cat";
 import { useCats } from "@/hooks/use-cats";
 import { cn } from "@/lib/utils";
+import { useCallback, useState } from "react";
+import { Menu } from "lucide-react";
 
 function HeaderItem({
   label,
@@ -26,24 +29,62 @@ function HeaderItem({
   );
 }
 
-export default function Header() {
+function MenuItems() {
   const { catsRemaining } = useCats();
-
   return (
-    <header className="z-10 sticky top-0 border-b-2 border-b-white flex flex-row items-center text-white bg-primary w-full min-h-20 h-1/8 gap-10 px-5">
-      <HeaderItem
-        label="Jamie Kai Tjia"
-        to=""
-        className="font-bold text-2xl italic"
-      />
+    <>
       {catsRemaining ? (
         <HiddenCat n={0} className="h-10 w-10" />
       ) : (
         <HeaderItem label="Cats" to="cats" />
       )}
-      <HeaderItem label="Projects" to="projects" />
       <HeaderItem label="About" to="about" />
+      <HeaderItem label="Projects" to="projects" />
       <HeaderItem label="Experience" to="experience" />
-    </header>
+    </>
+  );
+}
+
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((m) => !m);
+  }, [setMenuOpen]);
+
+  return (
+    <motion.header
+      layout
+      className={cn(
+        "sticky top-0 border-b-2 border-b-white flex flex-col items-center text-white bg-primary w-full gap-4 px-5 min-h-20 z-1",
+        menuOpen ? "h-7/8" : "h-1/8",
+      )}
+    >
+      <div
+        className={cn(
+          "flex flex-row items-center w-full gap-10 min-h-20",
+          menuOpen ? "border-b-2 border-b-white" : "border-none",
+        )}
+      >
+        <HeaderItem
+          label="Jamie Kai Tjia"
+          to=""
+          className="font-bold text-2xl italic"
+        />
+        <div className="hidden sm:flex flex-row items-center gap-10">
+          <MenuItems />
+        </div>
+        <div className="flex flex-grow sm:hidden items-center justify-end">
+          <Menu className="h-10 w-10" onClick={toggleMenu} />
+        </div>
+      </div>
+      <div
+        className={cn(
+          "flex-col-reverse gap-4 items-end w-full pb-4",
+          menuOpen ? "flex" : "hidden",
+        )}
+      >
+        <MenuItems />
+      </div>
+    </motion.header>
   );
 }

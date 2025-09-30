@@ -11,15 +11,15 @@ export default function About() {
         About Me
         <HiddenCat n={2} />
       </div>
-      <div className="text-lg text-start max-w-xl items-center mx-5">
+      <div className="text-lg text-start max-w-xl items-center">
         Hi! I&apos;m Kai, a third year at Northeastern University.
         <div className="min-w-full grid">
-          <HiddenCat n={12} className="col-start-2" />
+          {/* <HiddenCat n={12} className="col-start-2" /> */}
         </div>
         As a Computer Science and Biolgy student, I'm interested in using my
         programming skills to further the biological sciences.
         <div className="min-w-full grid">
-          <HiddenCat n={11} className="col-start-2" />
+          {/* <HiddenCat n={11} className="col-start-2" /> */}
         </div>
         I have experience quickly learning new programming languages and
         analyzing healthcare data from my internship at UMass Medical School,

@@ -2,6 +2,7 @@ import "@/lib/globals.css";
 import Footer from "@/components/layout/footer";
 import { Outlet } from "react-router";
 import Header from "./header";
+import { cn, responsiveMargins } from "@/lib/utils";
 
 export default function Layout() {
   return (
@@ -16,7 +17,12 @@ export function HeaderLayout() {
   return (
     <>
       <Header />
-      <main className="flex-grow flex flex-col gap-8 items-center sm:items-start overflow-y-auto px-6">
+      <main
+        className={cn(
+          responsiveMargins,
+          "flex-grow flex flex-col gap-8 items-center sm:items-start overflow-y-auto max-w-screen px-5",
+        )}
+      >
         <Outlet />
       </main>
     </>

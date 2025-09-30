@@ -1,7 +1,7 @@
 import ScrollAppearDiv from "@/components/scroll-appear-div";
 import { useCats } from "@/hooks/use-cats";
 import { Cat } from "lucide-react";
-import cats from "@/assets/cats.png";
+import cats from "/cats.png";
 
 export default function CatsRemainingPage() {
   const { catsRemaining } = useCats();

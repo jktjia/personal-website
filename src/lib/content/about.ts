@@ -1,0 +1,2 @@
+export const about =
+  "As a Computer Science and Biolgy student, I'm interested in using my programming skills to further the biological sciences.\nI have experience quickly learning new programming languages and analyzing healthcare data from my internship at UMass Medical School, and my time as a TA has strengthened my communication skills and my knowledge of algorithms. At my recent co-op at NExT, I worked as a full-stack developer and I also mangaged client communications.";

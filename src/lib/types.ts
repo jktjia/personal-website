@@ -32,8 +32,24 @@ interface ProjectType {
   timespan: string;
   header: JSX.Element;
   image: string;
-  tags: string[];
+  tags?: string[];
   content: string;
+  tools: string[];
+}
+
+interface WorkType {
+  employer: string;
+  position: string;
+  timespan: string;
+  header: JSX.Element;
+  content: JSX.Element;
+  logo?: string;
+}
+
+interface ToolType {
+  logo: string;
+  name: string;
+  href?: string;
 }
 
 export type {
@@ -42,6 +58,8 @@ export type {
   AlertProps,
   AlertContextType,
   ProjectType,
+  ToolType,
+  WorkType,
 };
 
 export enum AlertSeverity {
