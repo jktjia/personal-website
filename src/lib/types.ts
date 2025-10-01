@@ -1,5 +1,3 @@
-import { JSX } from "react";
-
 interface CatContextType {
   isCatFound: (n: number) => boolean;
   findCat: (n: number) => void;
@@ -30,20 +28,20 @@ interface AlertContextType {
 interface ProjectType {
   name: string;
   timespan: string;
-  header: JSX.Element;
   image: string;
   content: string;
   tools: string[];
   role: string;
+  hideCatContent?: boolean;
 }
 
 interface WorkType {
   employer: string;
   position: string;
   timespan: string;
-  header: JSX.Element;
   content: string[];
   logo?: string;
+  hideCatContent?: boolean;
 }
 
 interface ToolType {
