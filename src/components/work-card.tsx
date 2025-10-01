@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ExpandableCards } from "./experience-card";
 import { WorkType } from "@/lib/types";
 import useTypedMultiText from "@/hooks/use-typed-multi-text";
+import { catIndices } from "@/lib/content/cats";
 
 export default function WorkCards({
   jobs,
@@ -23,7 +24,7 @@ export default function WorkCards({
       })}
       selected={selected}
       setSelected={setSelected}
-      startN={4}
+      startN={catIndices["work-cards"]}
       className={className}
     >
       <div

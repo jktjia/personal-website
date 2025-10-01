@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import ScrollAppearDiv from "@/components/scroll-appear-div";
 import useTypedText from "@/hooks/use-typed-text";
 import useTypedMultiText from "@/hooks/use-typed-multi-text";
+import { catIndices } from "@/lib/content/cats";
 
 function HomePageLink({
   label,
@@ -66,10 +67,13 @@ export default function Home() {
             </div>
           )}
         </ScrollAppearDiv>
-        <HiddenCat n={17} className="absolute m-3 dark:text-white" />
+        <HiddenCat
+          n={catIndices["home-top"]}
+          className="absolute m-3 dark:text-white"
+        />
       </div>
       <HiddenCat
-        n={18}
+        n={catIndices["home-bottom"]}
         className="absolute m-3 bottom-0 right-0 dark:text-white"
       />
     </>

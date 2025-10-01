@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ExpandableCards, ExperienceImage, ToolIcon } from "./experience-card";
 import { ProjectType } from "@/lib/types";
 import useTypedText from "@/hooks/use-typed-text";
+import { catIndices } from "@/lib/content/cats";
 
 export default function ProjectCards({
   projects,
@@ -22,7 +23,7 @@ export default function ProjectCards({
       })}
       selected={selected}
       setSelected={setSelected}
-      startN={13}
+      startN={catIndices["project-cards"]}
       className={className}
     >
       <div className="grid sm:grid-cols-3 w-full gap-4 h-fit" onClick={showAll}>
@@ -36,6 +37,10 @@ export default function ProjectCards({
                 <ToolIcon tool={t} key={t} />
               ))}
             </div>
+          </div>
+          <div className="w-full text-wrap">
+            <span className="opacity-75">Role:</span>
+            {" " + current.role}
           </div>
         </div>
       </div>

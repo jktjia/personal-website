@@ -34,6 +34,7 @@ interface ProjectType {
   image: string;
   content: string;
   tools: string[];
+  role: string;
 }
 
 interface WorkType {

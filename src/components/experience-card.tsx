@@ -53,6 +53,7 @@ export function ToolIcon({ tool }: { tool: string }) {
     <a
       className="h-10 aspect-square items-center justify-center flex hover:bg-foreground"
       href={toolInfo[tool].href}
+      target="_blank"
     >
       <img src={toolInfo[tool].logo} alt={toolInfo[tool].name} />
     </a>

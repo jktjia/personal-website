@@ -1,5 +1,6 @@
 import HiddenCat from "@/components/cats/hidden-cat";
 import WorkCards from "@/components/work-card";
+import { catIndices } from "@/lib/content/cats";
 import { jobs } from "@/lib/content/jobs";
 import "@/lib/globals.css";
 
@@ -8,7 +9,7 @@ export default function Work() {
     <>
       <title>Experience</title>
       <div className="text-4xl sm:text-5xl pt-10 w-full text-center flex flex-row gap-4 items-center">
-        Professional Experience <HiddenCat n={19} />
+        Professional Experience <HiddenCat n={catIndices["work-top"]} />
       </div>
       <WorkCards className="w-7xl mb-10 max-w-full" jobs={jobs} />
     </>

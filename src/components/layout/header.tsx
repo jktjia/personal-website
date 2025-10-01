@@ -5,6 +5,7 @@ import { useCats } from "@/hooks/use-cats";
 import { cn } from "@/lib/utils";
 import { useCallback, useState } from "react";
 import { Menu } from "lucide-react";
+import { catIndices } from "@/lib/content/cats";
 
 function HeaderItem({
   label,
@@ -33,7 +34,7 @@ function MenuItems() {
   return (
     <>
       {catsRemaining ? (
-        <HiddenCat n={0} className="h-10 w-10" />
+        <HiddenCat n={catIndices["header"]} className="h-10 w-10" />
       ) : (
         <HeaderItem label="Cats" to="cats" />
       )}
@@ -80,6 +81,7 @@ export default function Header() {
           "flex-col-reverse gap-4 items-end w-full pb-4",
           menuOpen ? "flex" : "hidden",
         )}
+        onClick={toggleMenu}
       >
         <MenuItems />
       </div>

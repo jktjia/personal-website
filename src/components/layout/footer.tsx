@@ -1,5 +1,6 @@
 import "@/lib/globals.css";
 import HiddenCat from "../cats/hidden-cat";
+import { catIndices } from "@/lib/content/cats";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
       >
         LinkedIn
       </a>
-      <HiddenCat n={3} />
+      <HiddenCat n={catIndices["footer"]} />
       <a
         href="https://github.com/jktjia/"
         className="hover:underline hover:underline-offset-4"
