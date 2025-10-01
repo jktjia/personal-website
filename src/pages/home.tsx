@@ -30,7 +30,7 @@ function HomePageLink({
       )}
     >
       {currentText}
-      <ArrowRight className="text-white" />
+      <ArrowRight className="text-sky-500" />
     </NavLink>
   );
 }
@@ -69,12 +69,12 @@ export default function Home() {
         </ScrollAppearDiv>
         <HiddenCat
           n={catIndices["home-top"]}
-          className="absolute m-3 dark:text-white"
+          className="absolute m-3 text-indigo-500"
         />
       </div>
       <HiddenCat
         n={catIndices["home-bottom"]}
-        className="absolute m-3 bottom-0 right-0 dark:text-white"
+        className="absolute m-3 bottom-0 right-0 text-emerald-500"
       />
     </>
   );

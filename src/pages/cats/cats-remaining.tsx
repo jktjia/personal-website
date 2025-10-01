@@ -29,6 +29,7 @@ export default function CatsRemainingPage() {
           </ScrollAppearDiv>
           <ScrollAppearDiv>Go forth.</ScrollAppearDiv>
           <ScrollAppearDiv>Find them.</ScrollAppearDiv>
+          <ScrollAppearDiv>Click on them.</ScrollAppearDiv>
           <ScrollAppearDiv>I believe in you.</ScrollAppearDiv>
         </div>
       </div>

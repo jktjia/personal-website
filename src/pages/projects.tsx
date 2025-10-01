@@ -8,7 +8,8 @@ export default function Projects() {
     <>
       <title>Projects</title>
       <div className="text-4xl sm:text-5xl pt-10 w-full text-center flex flex-row gap-4 items-center">
-        Projects <HiddenCat n={catIndices["project-top"]} />
+        <div className="text-start">Projects</div>
+        <HiddenCat n={catIndices["project-top"]} color="primary" />
       </div>
       <ProjectCards className="max-w-7xl mb-10 w-full" projects={projects} />
     </>

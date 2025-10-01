@@ -2,6 +2,7 @@ import "@/lib/globals.css";
 import { motion } from "motion/react";
 import { cn, responsiveMargins } from "@/lib/utils";
 import { ReactNode } from "react";
+import { Cat } from "lucide-react";
 import HiddenCat from "./cats/hidden-cat";
 import { toolInfo } from "@/lib/tools";
 
@@ -67,6 +68,7 @@ function ExpandableCard({
   header,
   subheader,
   startN,
+  hideCatContent,
 }: {
   index: number;
   selected: number;
@@ -74,6 +76,7 @@ function ExpandableCard({
   header: string;
   subheader: string;
   startN: number;
+  hideCatContent?: boolean;
 }) {
   return (
     <motion.div layout className="bg-primary">
@@ -87,7 +90,11 @@ function ExpandableCard({
               <div className="flex flex-row w-full">
                 {header}
                 <div className="flex-grow" />
-                <HiddenCat n={startN + 1 + 2 * index} className="min-w-10" />
+                {hideCatContent ? (
+                  <Cat className="opacity-0" />
+                ) : (
+                  <HiddenCat n={startN + 1 + 2 * index} className="min-w-10" />
+                )}
               </div>
             </ExperienceHeader>
             <ExperienceSubheader>{subheader}</ExperienceSubheader>
@@ -123,7 +130,7 @@ export function ExpandableCards({
   children,
   className,
 }: {
-  items: { header: string; subheader: string }[];
+  items: { header: string; subheader: string; hideCatContent?: boolean }[];
   selected: number;
   setSelected: (n: number) => void;
   startN: number;
@@ -150,6 +157,7 @@ export function ExpandableCards({
             header={x.header}
             subheader={x.subheader}
             startN={startN}
+            hideCatContent={x.hideCatContent}
           />
         ))}
       </motion.div>

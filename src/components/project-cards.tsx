@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
+import { Cat } from "lucide-react";
 import { ExpandableCards, ExperienceImage, ToolIcon } from "./experience-card";
 import { ProjectType } from "@/lib/types";
 import useTypedText from "@/hooks/use-typed-text";
 import { catIndices } from "@/lib/content/cats";
+import HiddenCat from "./cats/hidden-cat";
 
 export default function ProjectCards({
   projects,
@@ -13,17 +15,21 @@ export default function ProjectCards({
 }) {
   const [selected, setSelected] = useState(0);
   const current = useMemo(() => projects[selected], [projects, selected]);
-
   const { currentText, showAll } = useTypedText(current.content);
+  const startN = catIndices["project-cards"];
 
   return (
     <ExpandableCards
       items={projects.map((p) => {
-        return { header: p.name, subheader: p.timespan };
+        return {
+          header: p.name,
+          subheader: p.timespan,
+          hideCatContent: p.hideCatContent,
+        };
       })}
       selected={selected}
       setSelected={setSelected}
-      startN={catIndices["project-cards"]}
+      startN={startN}
       className={className}
     >
       <div className="grid sm:grid-cols-3 w-full gap-4 h-fit" onClick={showAll}>
@@ -36,6 +42,15 @@ export default function ProjectCards({
               {current.tools.map((t) => (
                 <ToolIcon tool={t} key={t} />
               ))}
+              {current.hideCatContent ? (
+                <HiddenCat
+                  n={startN + 1 + 2 * selected}
+                  className="min-w-10"
+                  color="primary"
+                />
+              ) : (
+                <Cat className="opacity-0" />
+              )}
             </div>
           </div>
           <div className="w-full text-wrap">
