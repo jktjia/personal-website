@@ -17,7 +17,7 @@ export default function useTypedText(text: string, delay: number = 10) {
 
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, delay]);
+  }, [currentIndex, delay, text]);
 
   useEffect(() => {
     setCurrentIndex(0);

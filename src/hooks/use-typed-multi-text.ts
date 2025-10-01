@@ -1,7 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
 
+function initNewText(length: number) {
+  const newText = [];
+  for (let i = 0; i < length; i++) {
+    newText.push("");
+  }
+  return newText;
+}
+
 export default function useTypedMultiText(text: string[], delay: number = 10) {
-  const [currentText, setCurrentText] = useState<string[]>([]);
+  const [currentText, setCurrentText] = useState<string[]>(
+    initNewText(text.length),
+  );
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -31,15 +41,11 @@ export default function useTypedMultiText(text: string[], delay: number = 10) {
 
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, delay]);
+  }, [currentIndex, delay, text]);
 
   useEffect(() => {
     setCurrentIndex(0);
-    const newText = [];
-    for (let i = 0; i < text.length; i++) {
-      newText.push("");
-    }
-    setCurrentText(newText);
+    setCurrentText(initNewText(text.length));
   }, [text]);
 
   const showAll = useCallback(() => {
