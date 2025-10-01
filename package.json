@@ -27,7 +27,7 @@
     "vite": "^6.2.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
+    "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/vite": "^4.0.14",
