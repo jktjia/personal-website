@@ -1,6 +1,6 @@
 # Personal Website
 
-This is the repository for my personal portfolio
+This is the repository for my personal portfolio. It's a very straightforward site with some hidden features.
 
 ## React + TypeScript + Vite
 
