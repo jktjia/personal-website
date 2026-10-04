@@ -21,9 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
-      - name: Checkout submodules
-        uses: textbook/git-checkout-submodule-action@master
-
       - name: Build Zola + upload Pages artifact
         uses: getzola/github-pages@master
         with:
