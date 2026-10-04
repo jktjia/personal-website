@@ -22,6 +22,7 @@ jobs:
         uses: actions/checkout@main
         with:
           submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: true
           fetch-depth: 0
 
