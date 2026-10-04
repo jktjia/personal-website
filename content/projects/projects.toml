@@ -1,0 +1,46 @@
+layout = "card"
+flow = "stack"
+
+[[item]]
+title = "Verizon"
+# link = "https://example.com"
+image = "/assets/vzbility.png"
+badge = "February - July 2025"
+content = "Worked on a six-person team as primary DevOps contributor to build a customer retention dashboard using Terraform-managed AWS infrastructure for Verizon's AI&D team. The app integrated data from five sources initially to create configurable data visualizations. For text-based data sources, the app used a machine learning model to analyze sentiment and extract relevant keywords."
+tags = [
+    "aws",
+    "terraform",
+    "python",
+    "fastapi",
+    "postgresql",
+    "typescript",
+    "tailwind",
+    "react",
+    "docker",
+    "vite",
+    "git",
+]
+
+[[item]]
+title = "Cairn"
+# link = "https://example.com"
+image = "/assets/cairn.png"
+badge = "January 2025"
+content = "Platform for travelers to plan trips without having to worry about their schedule. Cairn allows its users to add events they find interesting while recommending a schedule that works around their current constraints. Our goal was to create a streamlined experience that allows users to plan trips while focusing on the events themselves."
+tags = ["typescript", "tailwind", "react", "docker", "vite", "git", "azure"]
+
+[[item]]
+title = "Loggr"
+# link = "https://example.com"
+image = "/assets/loggr.png"
+badge = "November - December 2023"
+content = "Worked on a five-person team to create a simple social media app that allows users to log information of their choice publicly or privately, view other user's logs, and follow various topics and other users."
+tags = ["mysql", "docker", "python", "flask", "git"]
+
+[[item]]
+title = "Image Processor"
+# link = "https://example.com"
+image = "/assets/image_processor.png"
+badge = "November - December 2022"
+content = "GUI application to apply filters and transform images that also allowed the user to import, export, and convert between four image formats structured using principles of object-oriented design and the MVC model."
+tags = ["java"]
