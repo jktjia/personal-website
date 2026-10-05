@@ -4,13 +4,13 @@ template = 'home.html'
 [extra]
 lang = 'en'
 
-# Show footer in home page
 footer = false
 
-# Show a few recent posts in home page
-recent = false
-recent_max = 15
+recent = true
+recent_max = 5
 recent_more_text = "more »"
+
+date_format = ""
 +++
 
 Hi there!
@@ -19,4 +19,4 @@ I'm Jamie Kai Tjia, a Master’s student in Computer Science at Northeastern Uni
 
 I am always looking for opportunities to collaborate with others and learn about the world at the intersection of software engineering, biology at the molecular level, and disease at the person- and public health-levels. I’m a developer with expertise in crafting efficient, well-documented, elegant code.
 
-In my spare time, I enjoy playing a good board game and watching _Star Trek: Deep Space Nine_ with my cats.
+In my spare time, I enjoy playing a long, complicated board game or watching _Star Trek: Deep Space Nine_ with my cats.
