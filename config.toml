@@ -34,7 +34,7 @@ anchors = "on"
 [extra]
 
 nav = [
-  { name = "about", path = "/about" },
+  { name = "background", path = "/background" },
   { name = "projects", path = "/projects" },
   { name = "resume", path = "/files/tjia_resume.pdf" },
   # { name = "tags", path = "/tags" },

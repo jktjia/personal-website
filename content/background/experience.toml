@@ -1,0 +1,36 @@
+layout = "card"
+flow = "stack"
+
+[[item]]
+title = "Verizon (Contract)"
+subtitle = "Software Engineering Co-op"
+icon = "/assets/vz_logo.png"
+badge = "Jan - Jul 2025"
+content = """\
+- As part of a university-backed consulting group, created an app that collects customer sentiment and network performance data to generate actionable insights regarding customer retention
+- Used Terraform to build AWS infrastructure for daily collection and processing of data and app deployment
+- Presented to Verizon stakeholders in bi-weekly touchpoints and wrote extensive completion report and documentation to communicate progress and facilitate app hand-off after completion
+"""
+
+[[item]]
+title = "Northeastern University"
+subtitle = "Algorithms Teaching Assistant"
+icon = "/assets/neu_logo.png"
+badge = "Sep 2023 - Dec 2024, Sep 2025 - Apr 2026"
+content = """\
+- Wrote solutions for homework assignments, assigned TA grading responsibilities, and gave students feedback on assignments and exams
+- Facilitated 3+ hours of weekly recitations to help students understand class material
+- Collaborated to develop homework and recitation problems in weekly instructor meetings
+"""
+
+[[item]]
+title = "UMass Chan Medical School"
+subtitle = "Data Analysis Intern"
+icon = "/assets/umass_logo.png"
+badge = "Jun - Aug 2023"
+content = """\
+- Analyzed datasets containing over 10 years data regarding drug data and clinical assessments
+- Taught graduate students and faculty how to make graphs using SAS so work could be recreated for similar projects
+- Created and presented graphs using SAS which summarized important statistics of the national Minimum Data Set (MDS) healthcare data
+- Reported in weekly team meetings to update the PI and rest of the research group on project progress
+"""
