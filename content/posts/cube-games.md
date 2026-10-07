@@ -14,7 +14,7 @@ toc = true
 
 You know those old computer games with grid boards that are weirdly addicting? Games like _Minesweeper_ and _Snake_ are classics, and implementing them is a fun little exercise. So I decided to make a bunch of them (also _2048_) and put them all together in a little website.
 
-{{ <figure src="/assets/cube-games.png" alt="Screen shot of the Minesweeper game from the cube games website" width="600" height="400" /> }}
+{{ <figure src="/assets/cube_games.png" alt="Screen shot of the Minesweeper game from the cube games website" width="600" height="400" /> }}
 
 But there's a twist.
 
