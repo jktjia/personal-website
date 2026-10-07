@@ -2,6 +2,14 @@ layout = "card"
 flow = "stack"
 
 [[item]]
+title = "I Need Star Trek"
+# link = "https://example.com"
+image = "/assets/i_need_star_trek.png"
+badge = "October 2026"
+content = "Built a command line app to select random Star Trek episodes. Works both as a simple command with flags and as an interactive TUI. Users can filter episodes to choose from based on release date, show, episode tags, etc."
+tags = ["golang", "cobra", "bubbletea"]
+
+[[item]]
 title = "Verizon"
 # link = "https://example.com"
 image = "/assets/vzbility.png"
